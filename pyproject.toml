@@ -1,0 +1,38 @@
+[tool.poetry]
+authors = ["Philip Delorenzo <git@deloarts.com>"]
+classifiers = ["Operating System :: Microsoft :: Windows"]
+description = "A command line tool for reordering the graph tree of a CATProduct."
+name = "pytia-reorder-tree"
+packages = [{include = "pytia_reorder_tree"}]
+readme = "README.md"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+comtypes = "1.2.0"
+python = "3.10.7"
+pytia = {git = "ssh://git@github.com/deloarts/pytia.git", tag = "v0.3.2"}
+pytia-ui-tools = {git = "ssh://git@github.com/deloarts/pytia-ui-tools.git", tag = "v0.6.6"}
+pywinauto = "0.6.8"
+rich = "13.4.2"
+
+[tool.poetry.group.build.dependencies]
+pygit2 = "1.12.0"
+pyinstaller = "^5.12.0"
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+jinja2 = "^3.1.2"
+packaging = "^23.1"
+pdoc3 = "^0.10.0"
+pyinstaller = "^5.12.0"
+pylint = "2.13.9"
+pytest = "^7.3.2"
+setuptools = "^68.0.0"
+toml = "^0.10.2"
+validators = "^0.20.0"
+wheel = "^0.40.0"
+pre-commit = "^3.3.3"
+
+[build-system]
+build-backend = "poetry.core.masonry.api"
+requires = ["poetry-core"]

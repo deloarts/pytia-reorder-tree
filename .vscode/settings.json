@@ -1,0 +1,35 @@
+{
+    "cSpell.words": [
+        "appdata",
+        "catia",
+        "catpart",
+        "catproduct",
+        "catvbs",
+        "CNEXT",
+        "comtypes",
+        "getpid",
+        "noconfirm",
+        "ONEDRIVE",
+        "onefile",
+        "partnumber",
+        "pdoc",
+        "pycatia",
+        "pygit",
+        "pyinstaller",
+        "pylint",
+        "pyproject",
+        "pytest",
+        "PYTHONW",
+        "PYTIA",
+        "pyversion",
+        "pywinauto",
+        "tkmsg",
+        "virtualenvs",
+        "zipfile"
+    ],
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true
+}

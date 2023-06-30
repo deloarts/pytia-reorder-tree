@@ -1,0 +1,1765 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia_reorder_tree.resources API documentation</title>
+<meta name="description" content="Loads the content from config files …" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia_reorder_tree.resources</code></h1>
+</header>
+<section id="section-intro">
+<p>Loads the content from config files.</p>
+<p>Important: Do not import third party modules here. This module
+must work on its own without any other dependencies!</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Loads the content from config files.
+
+    Important: Do not import third party modules here. This module
+    must work on its own without any other dependencies!
+&#34;&#34;&#34;
+
+import atexit
+import importlib.resources
+import json
+import os
+import tkinter.messagebox as tkmsg
+from dataclasses import asdict, dataclass, field, fields
+from json.decoder import JSONDecodeError
+from pathlib import Path
+from typing import Dict, List, Literal, Optional, Protocol
+
+from const import (
+    APP_VERSION,
+    APPDATA,
+    CONFIG_APPDATA,
+    CONFIG_KEYWORDS,
+    CONFIG_PROPS,
+    CONFIG_PROPS_DEFAULT,
+    CONFIG_SETTINGS,
+    CONFIG_USERS,
+    LOGON,
+)
+from resources.utils import expand_env_vars
+
+
+class DataclassProtocol(Protocol):
+    __dataclass_fields__: Dict
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsExport:
+    &#34;&#34;&#34;Dataclass for export settings.&#34;&#34;&#34;
+
+    apply_username_in_bom: bool
+    apply_username_in_docket: bool
+    lock_drawing_views: bool
+    jpg_views: List[List[float]]
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsRestrictions:
+    &#34;&#34;&#34;Dataclass for restrictive settings.&#34;&#34;&#34;
+
+    allow_all_users: bool
+    allow_all_editors: bool
+    allow_outside_workspace: bool
+
+
+@dataclass(slots=True, kw_only=True)
+class SettingsPaths:
+    &#34;&#34;&#34;Dataclass for paths (settings.json).&#34;&#34;&#34;
+
+    catia: Path
+    release: Path
+
+    def __post_init__(self) -&gt; None:
+        self.catia = Path(expand_env_vars(str(self.catia)))
+        self.release = Path(expand_env_vars(str(self.release)))
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsFiles:
+    &#34;&#34;&#34;Dataclass for files (settings.json).&#34;&#34;&#34;
+
+    app: str
+    launcher: str
+    workspace: str
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsGroupsItem:
+    &#34;&#34;&#34;Dataclass for groups (settings.json).&#34;&#34;&#34;
+
+    name: str
+    value: str
+    source: int
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsTree:
+    &#34;&#34;&#34;Dataclass for tree options (settings.json).&#34;&#34;&#34;
+
+    create_groups: bool
+    group_prefix: str
+    group_postfix: str
+    IN_delimiter: str
+    IN_position: int
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsUrls:
+    &#34;&#34;&#34;Dataclass for urls (settings.json).&#34;&#34;&#34;
+
+    help: str | None
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsMails:
+    &#34;&#34;&#34;Dataclass for mails (settings.json).&#34;&#34;&#34;
+
+    admin: str
+
+
+@dataclass(slots=True, kw_only=True)
+class Settings:  # pylint: disable=R0902
+    &#34;&#34;&#34;Dataclass for settings (settings.json).&#34;&#34;&#34;
+
+    title: str
+    debug: bool
+    restrictions: SettingsRestrictions
+    paths: SettingsPaths
+    files: SettingsFiles
+    # groups: List[SettingsGroupsItem]
+    tree: SettingsTree
+    urls: SettingsUrls
+    mails: SettingsMails
+
+    def __post_init__(self) -&gt; None:
+        self.restrictions = SettingsRestrictions(**dict(self.restrictions))  # type: ignore
+        self.paths = SettingsPaths(**dict(self.paths))  # type: ignore
+        self.files = SettingsFiles(**dict(self.files))  # type: ignore
+        # self.groups = [SettingsGroupsItem(**dict(i)) for i in self.groups]  # type: ignore
+        self.tree = SettingsTree(**dict(self.tree))  # type: ignore
+        self.urls = SettingsUrls(**dict(self.urls))  # type: ignore
+        self.mails = SettingsMails(**dict(self.mails))  # type: ignore
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class Props:
+    &#34;&#34;&#34;Dataclass for properties on the part (properties.json).&#34;&#34;&#34;
+
+    project: str
+    machine: str
+    creator: str
+    modifier: str
+    group: str
+    filter: str
+
+    @property
+    def keys(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all keys from the Props dataclass.&#34;&#34;&#34;
+        return [f.name for f in fields(self)]
+
+    @property
+    def values(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all values from the Props dataclass.&#34;&#34;&#34;
+        return [getattr(self, f.name) for f in fields(self)]
+
+
+@dataclass(slots=True, kw_only=True)
+class KeywordElements:
+    &#34;&#34;&#34;Dataclass for keyword elements.&#34;&#34;&#34;
+
+    partnumber: str
+    reorder_cmd_name: str
+    reorder_window_name: str
+    reorder_node_ok: str
+    reorder_node_apply: str
+    reorder_node_abort: str
+    reorder_node_move_up: str
+    reorder_node_move_down: str
+    reorder_node_list_box: str
+    props_cmd_name: str
+    props_window_name: str
+    props_tab_product: str
+    props_node_ok: str
+    props_node_apply: str
+    props_node_close: str
+    props_node_bom: str
+
+
+@dataclass
+class AppliedKeywords(KeywordElements):
+    ...
+
+
+@dataclass(slots=True, kw_only=True)
+class Keywords:
+    &#34;&#34;&#34;Dataclass for language specific keywords.&#34;&#34;&#34;
+
+    en: KeywordElements
+    de: KeywordElements
+
+    def __post_init__(self) -&gt; None:
+        self.en = KeywordElements(**dict(self.en))  # type: ignore
+        self.de = KeywordElements(**dict(self.de))  # type: ignore
+
+
+@dataclass(slots=True, kw_only=True, frozen=True)
+class User:
+    &#34;&#34;&#34;Dataclass a user (users.json).&#34;&#34;&#34;
+
+    logon: str
+    id: str
+    name: str
+    mail: str
+
+    @property
+    def keys(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all keys from the User dataclass.&#34;&#34;&#34;
+        return [f.name for f in fields(self)]
+
+    @property
+    def values(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all values from the User dataclass.&#34;&#34;&#34;
+        return [getattr(self, f.name) for f in fields(self)]
+
+
+@dataclass(slots=True, kw_only=True)
+class AppData:
+    &#34;&#34;&#34;Dataclass for appdata settings.&#34;&#34;&#34;
+
+    version: str = field(default=APP_VERSION)
+    counter: int = 0
+    disable_volume_warning: bool = False
+
+    def __post_init__(self) -&gt; None:
+        self.version = (
+            APP_VERSION  # Always store the latest version in the appdata json
+        )
+        self.counter += 1
+
+
+class Resources:  # pylint: disable=R0902
+    &#34;&#34;&#34;Class for handling resource files.&#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        self._language_applied = False
+        self._applied_keywords: AppliedKeywords
+
+        self._read_settings()
+        self._read_props()
+        self._read_keywords()
+        self._read_users()
+        self._read_appdata()
+
+        atexit.register(self._write_appdata)
+
+    @property
+    def settings(self) -&gt; Settings:
+        &#34;&#34;&#34;settings.json&#34;&#34;&#34;
+        return self._settings
+
+    @property
+    def props(self) -&gt; Props:
+        &#34;&#34;&#34;properties.json&#34;&#34;&#34;
+        return self._props
+
+    @property
+    def keywords(self) -&gt; Keywords:
+        &#34;&#34;&#34;keywords.json&#34;&#34;&#34;
+        return self._keywords
+
+    @property
+    def applied_keywords(self) -&gt; AppliedKeywords:
+        &#34;&#34;&#34;Translated version of the keywords json.&#34;&#34;&#34;
+        if not self._language_applied:
+            raise Exception(&#34;Language has not been applied to filters.json.&#34;)
+        return self._applied_keywords
+
+    @property
+    def users(self) -&gt; List[User]:
+        &#34;&#34;&#34;users.json&#34;&#34;&#34;
+        return self._users
+
+    @property
+    def appdata(self) -&gt; AppData:
+        &#34;&#34;&#34;Property for the appdata config file.&#34;&#34;&#34;
+        return self._appdata
+
+    def _read_settings(self) -&gt; None:
+        &#34;&#34;&#34;Reads the settings json from the resources folder.&#34;&#34;&#34;
+        with importlib.resources.open_binary(&#34;resources&#34;, CONFIG_SETTINGS) as f:
+            self._settings = Settings(**json.load(f))
+
+    def _read_props(self) -&gt; None:
+        &#34;&#34;&#34;Reads the props json from the resources folder.&#34;&#34;&#34;
+        props_resource = (
+            CONFIG_PROPS
+            if importlib.resources.is_resource(&#34;resources&#34;, CONFIG_PROPS)
+            else CONFIG_PROPS_DEFAULT
+        )
+        with importlib.resources.open_binary(&#34;resources&#34;, props_resource) as f:
+            self._props = Props(**json.load(f))
+
+    def _read_keywords(self) -&gt; None:
+        &#34;&#34;&#34;Reads the keywords json from the resources folder.&#34;&#34;&#34;
+        with importlib.resources.open_binary(&#34;resources&#34;, CONFIG_KEYWORDS) as f:
+            self._keywords = Keywords(**json.load(f))
+
+    def _read_users(self) -&gt; None:
+        &#34;&#34;&#34;Reads the users json from the resources folder.&#34;&#34;&#34;
+        with importlib.resources.open_binary(&#34;resources&#34;, CONFIG_USERS) as f:
+            self._users = [User(**i) for i in json.load(f)]
+
+    def _read_appdata(self) -&gt; None:
+        &#34;&#34;&#34;Reads the json config file from the appdata folder.&#34;&#34;&#34;
+        if os.path.exists(appdata_file := f&#34;{APPDATA}\\{CONFIG_APPDATA}&#34;):
+            with open(appdata_file, &#34;r&#34;, encoding=&#34;utf8&#34;) as f:
+                try:
+                    value = AppData(**json.load(f))
+                except JSONDecodeError:
+                    value = AppData()
+                    tkmsg.showwarning(
+                        title=&#34;Configuration warning&#34;,
+                        message=&#34;The AppData config file has been corrupted. \
+                            You may need to apply your preferences again.&#34;,
+                    )
+                self._appdata = value
+        else:
+            self._appdata = AppData()
+
+    def _write_appdata(self) -&gt; None:
+        &#34;&#34;&#34;Saves appdata config to file.&#34;&#34;&#34;
+        os.makedirs(APPDATA, exist_ok=True)
+        with open(f&#34;{APPDATA}\\{CONFIG_APPDATA}&#34;, &#34;w&#34;, encoding=&#34;utf8&#34;) as f:
+            json.dump(asdict(self._appdata), f)
+
+    def apply_language(self, language=Literal[&#34;en&#34;, &#34;de&#34;]) -&gt; None:
+        self._applied_keywords = AppliedKeywords(
+            **asdict(
+                resource._keywords.en if language == &#34;en&#34; else resource._keywords.de
+            )
+        )
+        self._language_applied = True
+
+    def logon_exists(self, logon: Optional[str] = None) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns wether the users logon exists in the dataclass, or not. Uses the logon-value of the
+        current session if logon is omitted.
+
+        Args:
+            logon (str): The logon name to search for.
+
+        Returns:
+            bool: The user from the dataclass list that matches the provided logon name.
+        &#34;&#34;&#34;
+        if logon is None:
+            logon = LOGON
+
+        for user in self._users:
+            if user.logon == logon:
+                return True
+        return False
+
+    def get_user_by_logon(self, logon: str) -&gt; User:
+        &#34;&#34;&#34;
+        Returns the user dataclass that matches the logon value.
+
+        Args:
+            user (str): The user to fetch from the dataclass list.
+
+        Raises:
+            ValueError: Raised when the user doesn&#39;t exist.
+
+        Returns:
+            User: The user from the dataclass list that matches the provided logon name.
+        &#34;&#34;&#34;
+        for index, value in enumerate(self._users):
+            if value.logon == logon:
+                return self._users[index]
+        raise ValueError
+
+    def user_exists(self, logon: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns wether the user exists in the dataclass list, or not.
+
+        Args:
+            logon (str): The logon name to search for.
+
+        Returns:
+            bool: The user from the dataclass list that matches the provided logon name.
+        &#34;&#34;&#34;
+        for user in self._users:
+            if user.logon == logon:
+                return True
+        return False
+
+
+resource = Resources()</code></pre>
+</details>
+</section>
+<section>
+<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+<dl>
+<dt><code class="name"><a title="pytia_reorder_tree.resources.utils" href="utils.html">pytia_reorder_tree.resources.utils</a></code></dt>
+<dd>
+<div class="desc"><p>Resource utilities …</p></div>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia_reorder_tree.resources.AppData"><code class="flex name class">
+<span>class <span class="ident">AppData</span></span>
+<span>(</span><span>*, version: str = '0.1.0', counter: int = 0, disable_volume_warning: bool = False)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for appdata settings.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True)
+class AppData:
+    &#34;&#34;&#34;Dataclass for appdata settings.&#34;&#34;&#34;
+
+    version: str = field(default=APP_VERSION)
+    counter: int = 0
+    disable_volume_warning: bool = False
+
+    def __post_init__(self) -&gt; None:
+        self.version = (
+            APP_VERSION  # Always store the latest version in the appdata json
+        )
+        self.counter += 1</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.AppData.counter"><code class="name">var <span class="ident">counter</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.AppData.disable_volume_warning"><code class="name">var <span class="ident">disable_volume_warning</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.AppData.version"><code class="name">var <span class="ident">version</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.AppliedKeywords"><code class="flex name class">
+<span>class <span class="ident">AppliedKeywords</span></span>
+<span>(</span><span>*, partnumber: str, reorder_cmd_name: str, reorder_window_name: str, reorder_node_ok: str, reorder_node_apply: str, reorder_node_abort: str, reorder_node_move_up: str, reorder_node_move_down: str, reorder_node_list_box: str, props_cmd_name: str, props_window_name: str, props_tab_product: str, props_node_ok: str, props_node_apply: str, props_node_close: str, props_node_bom: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>AppliedKeywords(*, partnumber: str, reorder_cmd_name: str, reorder_window_name: str, reorder_node_ok: str, reorder_node_apply: str, reorder_node_abort: str, reorder_node_move_up: str, reorder_node_move_down: str, reorder_node_list_box: str, props_cmd_name: str, props_window_name: str, props_tab_product: str, props_node_ok: str, props_node_apply: str, props_node_close: str, props_node_bom: str)</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass
+class AppliedKeywords(KeywordElements):
+    ...</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="pytia_reorder_tree.resources.KeywordElements" href="#pytia_reorder_tree.resources.KeywordElements">KeywordElements</a></li>
+</ul>
+<h3>Inherited members</h3>
+<ul class="hlist">
+<li><code><b><a title="pytia_reorder_tree.resources.KeywordElements" href="#pytia_reorder_tree.resources.KeywordElements">KeywordElements</a></b></code>:
+<ul class="hlist">
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.partnumber" href="#pytia_reorder_tree.resources.KeywordElements.partnumber">partnumber</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_cmd_name" href="#pytia_reorder_tree.resources.KeywordElements.props_cmd_name">props_cmd_name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_apply" href="#pytia_reorder_tree.resources.KeywordElements.props_node_apply">props_node_apply</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_bom" href="#pytia_reorder_tree.resources.KeywordElements.props_node_bom">props_node_bom</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_close" href="#pytia_reorder_tree.resources.KeywordElements.props_node_close">props_node_close</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_ok" href="#pytia_reorder_tree.resources.KeywordElements.props_node_ok">props_node_ok</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_tab_product" href="#pytia_reorder_tree.resources.KeywordElements.props_tab_product">props_tab_product</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_window_name" href="#pytia_reorder_tree.resources.KeywordElements.props_window_name">props_window_name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_cmd_name" href="#pytia_reorder_tree.resources.KeywordElements.reorder_cmd_name">reorder_cmd_name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_abort" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_abort">reorder_node_abort</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_apply" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_apply">reorder_node_apply</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_list_box" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_list_box">reorder_node_list_box</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_move_down" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_move_down">reorder_node_move_down</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_move_up" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_move_up">reorder_node_move_up</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_ok" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_ok">reorder_node_ok</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_window_name" href="#pytia_reorder_tree.resources.KeywordElements.reorder_window_name">reorder_window_name</a></code></li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt id="pytia_reorder_tree.resources.DataclassProtocol"><code class="flex name class">
+<span>class <span class="ident">DataclassProtocol</span></span>
+<span>(</span><span>*args, **kwargs)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base class for protocol classes.</p>
+<p>Protocol classes are defined as::</p>
+<pre><code>class Proto(Protocol):
+    def meth(self) -&gt; int:
+        ...
+</code></pre>
+<p>Such classes are primarily used with static type checkers that recognize
+structural subtyping (static duck-typing), for example::</p>
+<pre><code>class C:
+    def meth(self) -&gt; int:
+        return 0
+
+def func(x: Proto) -&gt; int:
+    return x.meth()
+
+func(C())  # Passes static type check
+</code></pre>
+<p>See PEP 544 for details. Protocol classes decorated with
+@typing.runtime_checkable act as simple-minded runtime protocols that check
+only the presence of given attributes, ignoring their type signatures.
+Protocol classes can be generic, they are defined as::</p>
+<pre><code>class GenProto(Protocol[T]):
+    def meth(self) -&gt; T:
+        ...
+</code></pre></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class DataclassProtocol(Protocol):
+    __dataclass_fields__: Dict</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>typing.Protocol</li>
+<li>typing.Generic</li>
+</ul>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements"><code class="flex name class">
+<span>class <span class="ident">KeywordElements</span></span>
+<span>(</span><span>*, partnumber: str, reorder_cmd_name: str, reorder_window_name: str, reorder_node_ok: str, reorder_node_apply: str, reorder_node_abort: str, reorder_node_move_up: str, reorder_node_move_down: str, reorder_node_list_box: str, props_cmd_name: str, props_window_name: str, props_tab_product: str, props_node_ok: str, props_node_apply: str, props_node_close: str, props_node_bom: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for keyword elements.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True)
+class KeywordElements:
+    &#34;&#34;&#34;Dataclass for keyword elements.&#34;&#34;&#34;
+
+    partnumber: str
+    reorder_cmd_name: str
+    reorder_window_name: str
+    reorder_node_ok: str
+    reorder_node_apply: str
+    reorder_node_abort: str
+    reorder_node_move_up: str
+    reorder_node_move_down: str
+    reorder_node_list_box: str
+    props_cmd_name: str
+    props_window_name: str
+    props_tab_product: str
+    props_node_ok: str
+    props_node_apply: str
+    props_node_close: str
+    props_node_bom: str</code></pre>
+</details>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="pytia_reorder_tree.resources.AppliedKeywords" href="#pytia_reorder_tree.resources.AppliedKeywords">AppliedKeywords</a></li>
+</ul>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.KeywordElements.partnumber"><code class="name">var <span class="ident">partnumber</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.props_cmd_name"><code class="name">var <span class="ident">props_cmd_name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.props_node_apply"><code class="name">var <span class="ident">props_node_apply</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.props_node_bom"><code class="name">var <span class="ident">props_node_bom</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.props_node_close"><code class="name">var <span class="ident">props_node_close</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.props_node_ok"><code class="name">var <span class="ident">props_node_ok</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.props_tab_product"><code class="name">var <span class="ident">props_tab_product</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.props_window_name"><code class="name">var <span class="ident">props_window_name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_cmd_name"><code class="name">var <span class="ident">reorder_cmd_name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_node_abort"><code class="name">var <span class="ident">reorder_node_abort</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_node_apply"><code class="name">var <span class="ident">reorder_node_apply</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_node_list_box"><code class="name">var <span class="ident">reorder_node_list_box</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_node_move_down"><code class="name">var <span class="ident">reorder_node_move_down</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_node_move_up"><code class="name">var <span class="ident">reorder_node_move_up</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_node_ok"><code class="name">var <span class="ident">reorder_node_ok</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.KeywordElements.reorder_window_name"><code class="name">var <span class="ident">reorder_window_name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.Keywords"><code class="flex name class">
+<span>class <span class="ident">Keywords</span></span>
+<span>(</span><span>*, en: <a title="pytia_reorder_tree.resources.KeywordElements" href="#pytia_reorder_tree.resources.KeywordElements">KeywordElements</a>, de: <a title="pytia_reorder_tree.resources.KeywordElements" href="#pytia_reorder_tree.resources.KeywordElements">KeywordElements</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for language specific keywords.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True)
+class Keywords:
+    &#34;&#34;&#34;Dataclass for language specific keywords.&#34;&#34;&#34;
+
+    en: KeywordElements
+    de: KeywordElements
+
+    def __post_init__(self) -&gt; None:
+        self.en = KeywordElements(**dict(self.en))  # type: ignore
+        self.de = KeywordElements(**dict(self.de))  # type: ignore</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.Keywords.de"><code class="name">var <span class="ident">de</span> : <a title="pytia_reorder_tree.resources.KeywordElements" href="#pytia_reorder_tree.resources.KeywordElements">KeywordElements</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Keywords.en"><code class="name">var <span class="ident">en</span> : <a title="pytia_reorder_tree.resources.KeywordElements" href="#pytia_reorder_tree.resources.KeywordElements">KeywordElements</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props"><code class="flex name class">
+<span>class <span class="ident">Props</span></span>
+<span>(</span><span>*, project: str, machine: str, creator: str, modifier: str, group: str, filter: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for properties on the part (properties.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class Props:
+    &#34;&#34;&#34;Dataclass for properties on the part (properties.json).&#34;&#34;&#34;
+
+    project: str
+    machine: str
+    creator: str
+    modifier: str
+    group: str
+    filter: str
+
+    @property
+    def keys(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all keys from the Props dataclass.&#34;&#34;&#34;
+        return [f.name for f in fields(self)]
+
+    @property
+    def values(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all values from the Props dataclass.&#34;&#34;&#34;
+        return [getattr(self, f.name) for f in fields(self)]</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.Props.creator"><code class="name">var <span class="ident">creator</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props.filter"><code class="name">var <span class="ident">filter</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props.group"><code class="name">var <span class="ident">group</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props.keys"><code class="name">var <span class="ident">keys</span> : List[str]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all keys from the Props dataclass.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def keys(self) -&gt; List[str]:
+    &#34;&#34;&#34;Returns a list of all keys from the Props dataclass.&#34;&#34;&#34;
+    return [f.name for f in fields(self)]</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props.machine"><code class="name">var <span class="ident">machine</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props.modifier"><code class="name">var <span class="ident">modifier</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props.project"><code class="name">var <span class="ident">project</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Props.values"><code class="name">var <span class="ident">values</span> : List[str]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all values from the Props dataclass.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def values(self) -&gt; List[str]:
+    &#34;&#34;&#34;Returns a list of all values from the Props dataclass.&#34;&#34;&#34;
+    return [getattr(self, f.name) for f in fields(self)]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources"><code class="flex name class">
+<span>class <span class="ident">Resources</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class for handling resource files.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class Resources:  # pylint: disable=R0902
+    &#34;&#34;&#34;Class for handling resource files.&#34;&#34;&#34;
+
+    def __init__(self) -&gt; None:
+        self._language_applied = False
+        self._applied_keywords: AppliedKeywords
+
+        self._read_settings()
+        self._read_props()
+        self._read_keywords()
+        self._read_users()
+        self._read_appdata()
+
+        atexit.register(self._write_appdata)
+
+    @property
+    def settings(self) -&gt; Settings:
+        &#34;&#34;&#34;settings.json&#34;&#34;&#34;
+        return self._settings
+
+    @property
+    def props(self) -&gt; Props:
+        &#34;&#34;&#34;properties.json&#34;&#34;&#34;
+        return self._props
+
+    @property
+    def keywords(self) -&gt; Keywords:
+        &#34;&#34;&#34;keywords.json&#34;&#34;&#34;
+        return self._keywords
+
+    @property
+    def applied_keywords(self) -&gt; AppliedKeywords:
+        &#34;&#34;&#34;Translated version of the keywords json.&#34;&#34;&#34;
+        if not self._language_applied:
+            raise Exception(&#34;Language has not been applied to filters.json.&#34;)
+        return self._applied_keywords
+
+    @property
+    def users(self) -&gt; List[User]:
+        &#34;&#34;&#34;users.json&#34;&#34;&#34;
+        return self._users
+
+    @property
+    def appdata(self) -&gt; AppData:
+        &#34;&#34;&#34;Property for the appdata config file.&#34;&#34;&#34;
+        return self._appdata
+
+    def _read_settings(self) -&gt; None:
+        &#34;&#34;&#34;Reads the settings json from the resources folder.&#34;&#34;&#34;
+        with importlib.resources.open_binary(&#34;resources&#34;, CONFIG_SETTINGS) as f:
+            self._settings = Settings(**json.load(f))
+
+    def _read_props(self) -&gt; None:
+        &#34;&#34;&#34;Reads the props json from the resources folder.&#34;&#34;&#34;
+        props_resource = (
+            CONFIG_PROPS
+            if importlib.resources.is_resource(&#34;resources&#34;, CONFIG_PROPS)
+            else CONFIG_PROPS_DEFAULT
+        )
+        with importlib.resources.open_binary(&#34;resources&#34;, props_resource) as f:
+            self._props = Props(**json.load(f))
+
+    def _read_keywords(self) -&gt; None:
+        &#34;&#34;&#34;Reads the keywords json from the resources folder.&#34;&#34;&#34;
+        with importlib.resources.open_binary(&#34;resources&#34;, CONFIG_KEYWORDS) as f:
+            self._keywords = Keywords(**json.load(f))
+
+    def _read_users(self) -&gt; None:
+        &#34;&#34;&#34;Reads the users json from the resources folder.&#34;&#34;&#34;
+        with importlib.resources.open_binary(&#34;resources&#34;, CONFIG_USERS) as f:
+            self._users = [User(**i) for i in json.load(f)]
+
+    def _read_appdata(self) -&gt; None:
+        &#34;&#34;&#34;Reads the json config file from the appdata folder.&#34;&#34;&#34;
+        if os.path.exists(appdata_file := f&#34;{APPDATA}\\{CONFIG_APPDATA}&#34;):
+            with open(appdata_file, &#34;r&#34;, encoding=&#34;utf8&#34;) as f:
+                try:
+                    value = AppData(**json.load(f))
+                except JSONDecodeError:
+                    value = AppData()
+                    tkmsg.showwarning(
+                        title=&#34;Configuration warning&#34;,
+                        message=&#34;The AppData config file has been corrupted. \
+                            You may need to apply your preferences again.&#34;,
+                    )
+                self._appdata = value
+        else:
+            self._appdata = AppData()
+
+    def _write_appdata(self) -&gt; None:
+        &#34;&#34;&#34;Saves appdata config to file.&#34;&#34;&#34;
+        os.makedirs(APPDATA, exist_ok=True)
+        with open(f&#34;{APPDATA}\\{CONFIG_APPDATA}&#34;, &#34;w&#34;, encoding=&#34;utf8&#34;) as f:
+            json.dump(asdict(self._appdata), f)
+
+    def apply_language(self, language=Literal[&#34;en&#34;, &#34;de&#34;]) -&gt; None:
+        self._applied_keywords = AppliedKeywords(
+            **asdict(
+                resource._keywords.en if language == &#34;en&#34; else resource._keywords.de
+            )
+        )
+        self._language_applied = True
+
+    def logon_exists(self, logon: Optional[str] = None) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns wether the users logon exists in the dataclass, or not. Uses the logon-value of the
+        current session if logon is omitted.
+
+        Args:
+            logon (str): The logon name to search for.
+
+        Returns:
+            bool: The user from the dataclass list that matches the provided logon name.
+        &#34;&#34;&#34;
+        if logon is None:
+            logon = LOGON
+
+        for user in self._users:
+            if user.logon == logon:
+                return True
+        return False
+
+    def get_user_by_logon(self, logon: str) -&gt; User:
+        &#34;&#34;&#34;
+        Returns the user dataclass that matches the logon value.
+
+        Args:
+            user (str): The user to fetch from the dataclass list.
+
+        Raises:
+            ValueError: Raised when the user doesn&#39;t exist.
+
+        Returns:
+            User: The user from the dataclass list that matches the provided logon name.
+        &#34;&#34;&#34;
+        for index, value in enumerate(self._users):
+            if value.logon == logon:
+                return self._users[index]
+        raise ValueError
+
+    def user_exists(self, logon: str) -&gt; bool:
+        &#34;&#34;&#34;
+        Returns wether the user exists in the dataclass list, or not.
+
+        Args:
+            logon (str): The logon name to search for.
+
+        Returns:
+            bool: The user from the dataclass list that matches the provided logon name.
+        &#34;&#34;&#34;
+        for user in self._users:
+            if user.logon == logon:
+                return True
+        return False</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.Resources.appdata"><code class="name">var <span class="ident">appdata</span> : <a title="pytia_reorder_tree.resources.AppData" href="#pytia_reorder_tree.resources.AppData">AppData</a></code></dt>
+<dd>
+<div class="desc"><p>Property for the appdata config file.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def appdata(self) -&gt; AppData:
+    &#34;&#34;&#34;Property for the appdata config file.&#34;&#34;&#34;
+    return self._appdata</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.applied_keywords"><code class="name">var <span class="ident">applied_keywords</span> : <a title="pytia_reorder_tree.resources.AppliedKeywords" href="#pytia_reorder_tree.resources.AppliedKeywords">AppliedKeywords</a></code></dt>
+<dd>
+<div class="desc"><p>Translated version of the keywords json.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def applied_keywords(self) -&gt; AppliedKeywords:
+    &#34;&#34;&#34;Translated version of the keywords json.&#34;&#34;&#34;
+    if not self._language_applied:
+        raise Exception(&#34;Language has not been applied to filters.json.&#34;)
+    return self._applied_keywords</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.keywords"><code class="name">var <span class="ident">keywords</span> : <a title="pytia_reorder_tree.resources.Keywords" href="#pytia_reorder_tree.resources.Keywords">Keywords</a></code></dt>
+<dd>
+<div class="desc"><p>keywords.json</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def keywords(self) -&gt; Keywords:
+    &#34;&#34;&#34;keywords.json&#34;&#34;&#34;
+    return self._keywords</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.props"><code class="name">var <span class="ident">props</span> : <a title="pytia_reorder_tree.resources.Props" href="#pytia_reorder_tree.resources.Props">Props</a></code></dt>
+<dd>
+<div class="desc"><p>properties.json</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def props(self) -&gt; Props:
+    &#34;&#34;&#34;properties.json&#34;&#34;&#34;
+    return self._props</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.settings"><code class="name">var <span class="ident">settings</span> : <a title="pytia_reorder_tree.resources.Settings" href="#pytia_reorder_tree.resources.Settings">Settings</a></code></dt>
+<dd>
+<div class="desc"><p>settings.json</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def settings(self) -&gt; Settings:
+    &#34;&#34;&#34;settings.json&#34;&#34;&#34;
+    return self._settings</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.users"><code class="name">var <span class="ident">users</span> : List[<a title="pytia_reorder_tree.resources.User" href="#pytia_reorder_tree.resources.User">User</a>]</code></dt>
+<dd>
+<div class="desc"><p>users.json</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def users(self) -&gt; List[User]:
+    &#34;&#34;&#34;users.json&#34;&#34;&#34;
+    return self._users</code></pre>
+</details>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.Resources.apply_language"><code class="name flex">
+<span>def <span class="ident">apply_language</span></span>(<span>self, language=typing.Literal['en', 'de']) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def apply_language(self, language=Literal[&#34;en&#34;, &#34;de&#34;]) -&gt; None:
+    self._applied_keywords = AppliedKeywords(
+        **asdict(
+            resource._keywords.en if language == &#34;en&#34; else resource._keywords.de
+        )
+    )
+    self._language_applied = True</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.get_user_by_logon"><code class="name flex">
+<span>def <span class="ident">get_user_by_logon</span></span>(<span>self, logon: str) ‑> <a title="pytia_reorder_tree.resources.User" href="#pytia_reorder_tree.resources.User">User</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns the user dataclass that matches the logon value.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>user</code></strong> :&ensp;<code>str</code></dt>
+<dd>The user to fetch from the dataclass list.</dd>
+</dl>
+<h2 id="raises">Raises</h2>
+<dl>
+<dt><code>ValueError</code></dt>
+<dd>Raised when the user doesn't exist.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code><a title="pytia_reorder_tree.resources.User" href="#pytia_reorder_tree.resources.User">User</a></code></dt>
+<dd>The user from the dataclass list that matches the provided logon name.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def get_user_by_logon(self, logon: str) -&gt; User:
+    &#34;&#34;&#34;
+    Returns the user dataclass that matches the logon value.
+
+    Args:
+        user (str): The user to fetch from the dataclass list.
+
+    Raises:
+        ValueError: Raised when the user doesn&#39;t exist.
+
+    Returns:
+        User: The user from the dataclass list that matches the provided logon name.
+    &#34;&#34;&#34;
+    for index, value in enumerate(self._users):
+        if value.logon == logon:
+            return self._users[index]
+    raise ValueError</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.logon_exists"><code class="name flex">
+<span>def <span class="ident">logon_exists</span></span>(<span>self, logon: str | None = None) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns wether the users logon exists in the dataclass, or not. Uses the logon-value of the
+current session if logon is omitted.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>logon</code></strong> :&ensp;<code>str</code></dt>
+<dd>The logon name to search for.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>The user from the dataclass list that matches the provided logon name.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def logon_exists(self, logon: Optional[str] = None) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns wether the users logon exists in the dataclass, or not. Uses the logon-value of the
+    current session if logon is omitted.
+
+    Args:
+        logon (str): The logon name to search for.
+
+    Returns:
+        bool: The user from the dataclass list that matches the provided logon name.
+    &#34;&#34;&#34;
+    if logon is None:
+        logon = LOGON
+
+    for user in self._users:
+        if user.logon == logon:
+            return True
+    return False</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.Resources.user_exists"><code class="name flex">
+<span>def <span class="ident">user_exists</span></span>(<span>self, logon: str) ‑> bool</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns wether the user exists in the dataclass list, or not.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>logon</code></strong> :&ensp;<code>str</code></dt>
+<dd>The logon name to search for.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>bool</code></dt>
+<dd>The user from the dataclass list that matches the provided logon name.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def user_exists(self, logon: str) -&gt; bool:
+    &#34;&#34;&#34;
+    Returns wether the user exists in the dataclass list, or not.
+
+    Args:
+        logon (str): The logon name to search for.
+
+    Returns:
+        bool: The user from the dataclass list that matches the provided logon name.
+    &#34;&#34;&#34;
+    for user in self._users:
+        if user.logon == logon:
+            return True
+    return False</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings"><code class="flex name class">
+<span>class <span class="ident">Settings</span></span>
+<span>(</span><span>*, title: str, debug: bool, restrictions: <a title="pytia_reorder_tree.resources.SettingsRestrictions" href="#pytia_reorder_tree.resources.SettingsRestrictions">SettingsRestrictions</a>, paths: <a title="pytia_reorder_tree.resources.SettingsPaths" href="#pytia_reorder_tree.resources.SettingsPaths">SettingsPaths</a>, files: <a title="pytia_reorder_tree.resources.SettingsFiles" href="#pytia_reorder_tree.resources.SettingsFiles">SettingsFiles</a>, tree: <a title="pytia_reorder_tree.resources.SettingsTree" href="#pytia_reorder_tree.resources.SettingsTree">SettingsTree</a>, urls: <a title="pytia_reorder_tree.resources.SettingsUrls" href="#pytia_reorder_tree.resources.SettingsUrls">SettingsUrls</a>, mails: <a title="pytia_reorder_tree.resources.SettingsMails" href="#pytia_reorder_tree.resources.SettingsMails">SettingsMails</a>)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for settings (settings.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True)
+class Settings:  # pylint: disable=R0902
+    &#34;&#34;&#34;Dataclass for settings (settings.json).&#34;&#34;&#34;
+
+    title: str
+    debug: bool
+    restrictions: SettingsRestrictions
+    paths: SettingsPaths
+    files: SettingsFiles
+    # groups: List[SettingsGroupsItem]
+    tree: SettingsTree
+    urls: SettingsUrls
+    mails: SettingsMails
+
+    def __post_init__(self) -&gt; None:
+        self.restrictions = SettingsRestrictions(**dict(self.restrictions))  # type: ignore
+        self.paths = SettingsPaths(**dict(self.paths))  # type: ignore
+        self.files = SettingsFiles(**dict(self.files))  # type: ignore
+        # self.groups = [SettingsGroupsItem(**dict(i)) for i in self.groups]  # type: ignore
+        self.tree = SettingsTree(**dict(self.tree))  # type: ignore
+        self.urls = SettingsUrls(**dict(self.urls))  # type: ignore
+        self.mails = SettingsMails(**dict(self.mails))  # type: ignore</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.Settings.debug"><code class="name">var <span class="ident">debug</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.files"><code class="name">var <span class="ident">files</span> : <a title="pytia_reorder_tree.resources.SettingsFiles" href="#pytia_reorder_tree.resources.SettingsFiles">SettingsFiles</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.mails"><code class="name">var <span class="ident">mails</span> : <a title="pytia_reorder_tree.resources.SettingsMails" href="#pytia_reorder_tree.resources.SettingsMails">SettingsMails</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.paths"><code class="name">var <span class="ident">paths</span> : <a title="pytia_reorder_tree.resources.SettingsPaths" href="#pytia_reorder_tree.resources.SettingsPaths">SettingsPaths</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.restrictions"><code class="name">var <span class="ident">restrictions</span> : <a title="pytia_reorder_tree.resources.SettingsRestrictions" href="#pytia_reorder_tree.resources.SettingsRestrictions">SettingsRestrictions</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.title"><code class="name">var <span class="ident">title</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.tree"><code class="name">var <span class="ident">tree</span> : <a title="pytia_reorder_tree.resources.SettingsTree" href="#pytia_reorder_tree.resources.SettingsTree">SettingsTree</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.urls"><code class="name">var <span class="ident">urls</span> : <a title="pytia_reorder_tree.resources.SettingsUrls" href="#pytia_reorder_tree.resources.SettingsUrls">SettingsUrls</a></code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsExport"><code class="flex name class">
+<span>class <span class="ident">SettingsExport</span></span>
+<span>(</span><span>*, apply_username_in_bom: bool, apply_username_in_docket: bool, lock_drawing_views: bool, jpg_views: List[List[float]])</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for export settings.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsExport:
+    &#34;&#34;&#34;Dataclass for export settings.&#34;&#34;&#34;
+
+    apply_username_in_bom: bool
+    apply_username_in_docket: bool
+    lock_drawing_views: bool
+    jpg_views: List[List[float]]</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsExport.apply_username_in_bom"><code class="name">var <span class="ident">apply_username_in_bom</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsExport.apply_username_in_docket"><code class="name">var <span class="ident">apply_username_in_docket</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsExport.jpg_views"><code class="name">var <span class="ident">jpg_views</span> : List[List[float]]</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsExport.lock_drawing_views"><code class="name">var <span class="ident">lock_drawing_views</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsFiles"><code class="flex name class">
+<span>class <span class="ident">SettingsFiles</span></span>
+<span>(</span><span>*, app: str, launcher: str, workspace: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for files (settings.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsFiles:
+    &#34;&#34;&#34;Dataclass for files (settings.json).&#34;&#34;&#34;
+
+    app: str
+    launcher: str
+    workspace: str</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsFiles.app"><code class="name">var <span class="ident">app</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsFiles.launcher"><code class="name">var <span class="ident">launcher</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsFiles.workspace"><code class="name">var <span class="ident">workspace</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsGroupsItem"><code class="flex name class">
+<span>class <span class="ident">SettingsGroupsItem</span></span>
+<span>(</span><span>*, name: str, value: str, source: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for groups (settings.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsGroupsItem:
+    &#34;&#34;&#34;Dataclass for groups (settings.json).&#34;&#34;&#34;
+
+    name: str
+    value: str
+    source: int</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsGroupsItem.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsGroupsItem.source"><code class="name">var <span class="ident">source</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsGroupsItem.value"><code class="name">var <span class="ident">value</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsMails"><code class="flex name class">
+<span>class <span class="ident">SettingsMails</span></span>
+<span>(</span><span>*, admin: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for mails (settings.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsMails:
+    &#34;&#34;&#34;Dataclass for mails (settings.json).&#34;&#34;&#34;
+
+    admin: str</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsMails.admin"><code class="name">var <span class="ident">admin</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsPaths"><code class="flex name class">
+<span>class <span class="ident">SettingsPaths</span></span>
+<span>(</span><span>*, catia: pathlib.Path, release: pathlib.Path)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for paths (settings.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True)
+class SettingsPaths:
+    &#34;&#34;&#34;Dataclass for paths (settings.json).&#34;&#34;&#34;
+
+    catia: Path
+    release: Path
+
+    def __post_init__(self) -&gt; None:
+        self.catia = Path(expand_env_vars(str(self.catia)))
+        self.release = Path(expand_env_vars(str(self.release)))</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsPaths.catia"><code class="name">var <span class="ident">catia</span> : pathlib.Path</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsPaths.release"><code class="name">var <span class="ident">release</span> : pathlib.Path</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsRestrictions"><code class="flex name class">
+<span>class <span class="ident">SettingsRestrictions</span></span>
+<span>(</span><span>*, allow_all_users: bool, allow_all_editors: bool, allow_outside_workspace: bool)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for restrictive settings.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsRestrictions:
+    &#34;&#34;&#34;Dataclass for restrictive settings.&#34;&#34;&#34;
+
+    allow_all_users: bool
+    allow_all_editors: bool
+    allow_outside_workspace: bool</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsRestrictions.allow_all_editors"><code class="name">var <span class="ident">allow_all_editors</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsRestrictions.allow_all_users"><code class="name">var <span class="ident">allow_all_users</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsRestrictions.allow_outside_workspace"><code class="name">var <span class="ident">allow_outside_workspace</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsTree"><code class="flex name class">
+<span>class <span class="ident">SettingsTree</span></span>
+<span>(</span><span>*, create_groups: bool, group_prefix: str, group_postfix: str, IN_delimiter: str, IN_position: int)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for tree options (settings.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsTree:
+    &#34;&#34;&#34;Dataclass for tree options (settings.json).&#34;&#34;&#34;
+
+    create_groups: bool
+    group_prefix: str
+    group_postfix: str
+    IN_delimiter: str
+    IN_position: int</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsTree.IN_delimiter"><code class="name">var <span class="ident">IN_delimiter</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsTree.IN_position"><code class="name">var <span class="ident">IN_position</span> : int</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsTree.create_groups"><code class="name">var <span class="ident">create_groups</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsTree.group_postfix"><code class="name">var <span class="ident">group_postfix</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsTree.group_prefix"><code class="name">var <span class="ident">group_prefix</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsUrls"><code class="flex name class">
+<span>class <span class="ident">SettingsUrls</span></span>
+<span>(</span><span>*, help: str | None)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass for urls (settings.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class SettingsUrls:
+    &#34;&#34;&#34;Dataclass for urls (settings.json).&#34;&#34;&#34;
+
+    help: str | None</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.SettingsUrls.help"><code class="name">var <span class="ident">help</span> : str | None</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="pytia_reorder_tree.resources.User"><code class="flex name class">
+<span>class <span class="ident">User</span></span>
+<span>(</span><span>*, logon: str, id: str, name: str, mail: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Dataclass a user (users.json).</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True, frozen=True)
+class User:
+    &#34;&#34;&#34;Dataclass a user (users.json).&#34;&#34;&#34;
+
+    logon: str
+    id: str
+    name: str
+    mail: str
+
+    @property
+    def keys(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all keys from the User dataclass.&#34;&#34;&#34;
+        return [f.name for f in fields(self)]
+
+    @property
+    def values(self) -&gt; List[str]:
+        &#34;&#34;&#34;Returns a list of all values from the User dataclass.&#34;&#34;&#34;
+        return [getattr(self, f.name) for f in fields(self)]</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.resources.User.id"><code class="name">var <span class="ident">id</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.User.keys"><code class="name">var <span class="ident">keys</span> : List[str]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all keys from the User dataclass.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def keys(self) -&gt; List[str]:
+    &#34;&#34;&#34;Returns a list of all keys from the User dataclass.&#34;&#34;&#34;
+    return [f.name for f in fields(self)]</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.resources.User.logon"><code class="name">var <span class="ident">logon</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.User.mail"><code class="name">var <span class="ident">mail</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.User.name"><code class="name">var <span class="ident">name</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.User.values"><code class="name">var <span class="ident">values</span> : List[str]</code></dt>
+<dd>
+<div class="desc"><p>Returns a list of all values from the User dataclass.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@property
+def values(self) -&gt; List[str]:
+    &#34;&#34;&#34;Returns a list of all values from the User dataclass.&#34;&#34;&#34;
+    return [getattr(self, f.name) for f in fields(self)]</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia_reorder_tree" href="../index.html">pytia_reorder_tree</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<ul>
+<li><code><a title="pytia_reorder_tree.resources.utils" href="utils.html">pytia_reorder_tree.resources.utils</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.AppData" href="#pytia_reorder_tree.resources.AppData">AppData</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.AppData.counter" href="#pytia_reorder_tree.resources.AppData.counter">counter</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.AppData.disable_volume_warning" href="#pytia_reorder_tree.resources.AppData.disable_volume_warning">disable_volume_warning</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.AppData.version" href="#pytia_reorder_tree.resources.AppData.version">version</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.AppliedKeywords" href="#pytia_reorder_tree.resources.AppliedKeywords">AppliedKeywords</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.DataclassProtocol" href="#pytia_reorder_tree.resources.DataclassProtocol">DataclassProtocol</a></code></h4>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.KeywordElements" href="#pytia_reorder_tree.resources.KeywordElements">KeywordElements</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.partnumber" href="#pytia_reorder_tree.resources.KeywordElements.partnumber">partnumber</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_cmd_name" href="#pytia_reorder_tree.resources.KeywordElements.props_cmd_name">props_cmd_name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_apply" href="#pytia_reorder_tree.resources.KeywordElements.props_node_apply">props_node_apply</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_bom" href="#pytia_reorder_tree.resources.KeywordElements.props_node_bom">props_node_bom</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_close" href="#pytia_reorder_tree.resources.KeywordElements.props_node_close">props_node_close</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_node_ok" href="#pytia_reorder_tree.resources.KeywordElements.props_node_ok">props_node_ok</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_tab_product" href="#pytia_reorder_tree.resources.KeywordElements.props_tab_product">props_tab_product</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.props_window_name" href="#pytia_reorder_tree.resources.KeywordElements.props_window_name">props_window_name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_cmd_name" href="#pytia_reorder_tree.resources.KeywordElements.reorder_cmd_name">reorder_cmd_name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_abort" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_abort">reorder_node_abort</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_apply" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_apply">reorder_node_apply</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_list_box" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_list_box">reorder_node_list_box</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_move_down" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_move_down">reorder_node_move_down</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_move_up" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_move_up">reorder_node_move_up</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_node_ok" href="#pytia_reorder_tree.resources.KeywordElements.reorder_node_ok">reorder_node_ok</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.KeywordElements.reorder_window_name" href="#pytia_reorder_tree.resources.KeywordElements.reorder_window_name">reorder_window_name</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.Keywords" href="#pytia_reorder_tree.resources.Keywords">Keywords</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.Keywords.de" href="#pytia_reorder_tree.resources.Keywords.de">de</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Keywords.en" href="#pytia_reorder_tree.resources.Keywords.en">en</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.Props" href="#pytia_reorder_tree.resources.Props">Props</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia_reorder_tree.resources.Props.creator" href="#pytia_reorder_tree.resources.Props.creator">creator</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Props.filter" href="#pytia_reorder_tree.resources.Props.filter">filter</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Props.group" href="#pytia_reorder_tree.resources.Props.group">group</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Props.keys" href="#pytia_reorder_tree.resources.Props.keys">keys</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Props.machine" href="#pytia_reorder_tree.resources.Props.machine">machine</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Props.modifier" href="#pytia_reorder_tree.resources.Props.modifier">modifier</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Props.project" href="#pytia_reorder_tree.resources.Props.project">project</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Props.values" href="#pytia_reorder_tree.resources.Props.values">values</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.Resources" href="#pytia_reorder_tree.resources.Resources">Resources</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia_reorder_tree.resources.Resources.appdata" href="#pytia_reorder_tree.resources.Resources.appdata">appdata</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.applied_keywords" href="#pytia_reorder_tree.resources.Resources.applied_keywords">applied_keywords</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.apply_language" href="#pytia_reorder_tree.resources.Resources.apply_language">apply_language</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.get_user_by_logon" href="#pytia_reorder_tree.resources.Resources.get_user_by_logon">get_user_by_logon</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.keywords" href="#pytia_reorder_tree.resources.Resources.keywords">keywords</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.logon_exists" href="#pytia_reorder_tree.resources.Resources.logon_exists">logon_exists</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.props" href="#pytia_reorder_tree.resources.Resources.props">props</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.settings" href="#pytia_reorder_tree.resources.Resources.settings">settings</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.user_exists" href="#pytia_reorder_tree.resources.Resources.user_exists">user_exists</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Resources.users" href="#pytia_reorder_tree.resources.Resources.users">users</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.Settings" href="#pytia_reorder_tree.resources.Settings">Settings</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia_reorder_tree.resources.Settings.debug" href="#pytia_reorder_tree.resources.Settings.debug">debug</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.files" href="#pytia_reorder_tree.resources.Settings.files">files</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.mails" href="#pytia_reorder_tree.resources.Settings.mails">mails</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.paths" href="#pytia_reorder_tree.resources.Settings.paths">paths</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.restrictions" href="#pytia_reorder_tree.resources.Settings.restrictions">restrictions</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.title" href="#pytia_reorder_tree.resources.Settings.title">title</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.tree" href="#pytia_reorder_tree.resources.Settings.tree">tree</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.urls" href="#pytia_reorder_tree.resources.Settings.urls">urls</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsExport" href="#pytia_reorder_tree.resources.SettingsExport">SettingsExport</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsExport.apply_username_in_bom" href="#pytia_reorder_tree.resources.SettingsExport.apply_username_in_bom">apply_username_in_bom</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsExport.apply_username_in_docket" href="#pytia_reorder_tree.resources.SettingsExport.apply_username_in_docket">apply_username_in_docket</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsExport.jpg_views" href="#pytia_reorder_tree.resources.SettingsExport.jpg_views">jpg_views</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsExport.lock_drawing_views" href="#pytia_reorder_tree.resources.SettingsExport.lock_drawing_views">lock_drawing_views</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsFiles" href="#pytia_reorder_tree.resources.SettingsFiles">SettingsFiles</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsFiles.app" href="#pytia_reorder_tree.resources.SettingsFiles.app">app</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsFiles.launcher" href="#pytia_reorder_tree.resources.SettingsFiles.launcher">launcher</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsFiles.workspace" href="#pytia_reorder_tree.resources.SettingsFiles.workspace">workspace</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsGroupsItem" href="#pytia_reorder_tree.resources.SettingsGroupsItem">SettingsGroupsItem</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsGroupsItem.name" href="#pytia_reorder_tree.resources.SettingsGroupsItem.name">name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsGroupsItem.source" href="#pytia_reorder_tree.resources.SettingsGroupsItem.source">source</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsGroupsItem.value" href="#pytia_reorder_tree.resources.SettingsGroupsItem.value">value</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsMails" href="#pytia_reorder_tree.resources.SettingsMails">SettingsMails</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsMails.admin" href="#pytia_reorder_tree.resources.SettingsMails.admin">admin</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsPaths" href="#pytia_reorder_tree.resources.SettingsPaths">SettingsPaths</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsPaths.catia" href="#pytia_reorder_tree.resources.SettingsPaths.catia">catia</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsPaths.release" href="#pytia_reorder_tree.resources.SettingsPaths.release">release</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsRestrictions" href="#pytia_reorder_tree.resources.SettingsRestrictions">SettingsRestrictions</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsRestrictions.allow_all_editors" href="#pytia_reorder_tree.resources.SettingsRestrictions.allow_all_editors">allow_all_editors</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsRestrictions.allow_all_users" href="#pytia_reorder_tree.resources.SettingsRestrictions.allow_all_users">allow_all_users</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsRestrictions.allow_outside_workspace" href="#pytia_reorder_tree.resources.SettingsRestrictions.allow_outside_workspace">allow_outside_workspace</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsTree" href="#pytia_reorder_tree.resources.SettingsTree">SettingsTree</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsTree.IN_delimiter" href="#pytia_reorder_tree.resources.SettingsTree.IN_delimiter">IN_delimiter</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsTree.IN_position" href="#pytia_reorder_tree.resources.SettingsTree.IN_position">IN_position</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsTree.create_groups" href="#pytia_reorder_tree.resources.SettingsTree.create_groups">create_groups</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsTree.group_postfix" href="#pytia_reorder_tree.resources.SettingsTree.group_postfix">group_postfix</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsTree.group_prefix" href="#pytia_reorder_tree.resources.SettingsTree.group_prefix">group_prefix</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.SettingsUrls" href="#pytia_reorder_tree.resources.SettingsUrls">SettingsUrls</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.resources.SettingsUrls.help" href="#pytia_reorder_tree.resources.SettingsUrls.help">help</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="pytia_reorder_tree.resources.User" href="#pytia_reorder_tree.resources.User">User</a></code></h4>
+<ul class="two-column">
+<li><code><a title="pytia_reorder_tree.resources.User.id" href="#pytia_reorder_tree.resources.User.id">id</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.User.keys" href="#pytia_reorder_tree.resources.User.keys">keys</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.User.logon" href="#pytia_reorder_tree.resources.User.logon">logon</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.User.mail" href="#pytia_reorder_tree.resources.User.mail">mail</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.User.name" href="#pytia_reorder_tree.resources.User.name">name</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.User.values" href="#pytia_reorder_tree.resources.User.values">values</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
