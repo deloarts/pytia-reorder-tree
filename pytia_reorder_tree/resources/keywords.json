@@ -1,0 +1,38 @@
+{
+    "en": {
+        "partnumber": "Part Number",
+        "reorder_cmd_name": "Graph tree reordering",
+        "reorder_window_name": "Graph tree reordering",
+        "reorder_node_ok": "OK",
+        "reorder_node_apply": "Apply",
+        "reorder_node_abort": "Cancel",
+        "reorder_node_move_up": "Move Up",
+        "reorder_node_move_down": "Move Down",
+        "reorder_node_list_box": "ListProd",
+        "props_cmd_name": "Properties",
+        "props_window_name": "Properties",
+        "props_tab_product": "ContPropContainerCATEditorProduct",
+        "props_node_ok": "OK",
+        "props_node_apply": "Apply",
+        "props_node_close": "Close",
+        "props_node_bom": " Visualize in the Bill Of Material "
+    },
+    "de": {
+        "partnumber": "Teilenummer",
+        "reorder_cmd_name": "Neuordnung des Grafikbaums",
+        "reorder_window_name": "Neuordnung des Grafikstrukturbaums",
+        "reorder_node_ok": "OK",
+        "reorder_node_apply": "Anwenden",
+        "reorder_node_abort": "Abbrechen",
+        "reorder_node_move_up": "Nach oben verschieben",
+        "reorder_node_move_down": "Nach unten verschieben",
+        "reorder_node_list_box": "ListProd",
+        "props_cmd_name": "Eigenschaften",
+        "props_window_name": "Eigenschaften",
+        "props_tab_product": "ContPropContainerCATEditorProduct",
+        "props_node_ok": "OK",
+        "props_node_apply": "Anwenden",
+        "props_node_close": "Schließen",
+        "props_node_bom": " In der Stückliste anzeigen"
+    }
+}

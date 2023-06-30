@@ -1,0 +1,27 @@
+[
+    {
+        "name": "pytia",
+        "version": "0.3.2",
+        "wheel": "https://github.com/deloarts/pytia/releases/download/v0.3.2/pytia-0.3.2-py3-none-any.whl"
+    },
+    {
+        "name": "pytia_ui_tools",
+        "version": "0.6.6",
+        "wheel": "https://github.com/deloarts/pytia-ui-tools/releases/download/v0.6.6/pytia_ui_tools-0.6.6-py3-none-any.whl"
+    },
+    {
+        "name": "comtypes",
+        "version": "1.2.0",
+        "wheel": null
+    },
+    {
+        "name": "pywinauto",
+        "version": "0.6.8",
+        "wheel": null
+    },
+    {
+        "name": "rich",
+        "version": "13.4.2",
+        "wheel": null
+    }
+]

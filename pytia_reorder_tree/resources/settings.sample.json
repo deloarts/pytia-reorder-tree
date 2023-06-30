@@ -1,0 +1,31 @@
+{
+    "title": "PYTIA Reorder Tree",
+    "debug": false,
+    "restrictions": {
+        "allow_all_users": false,
+        "allow_all_editors": false,
+        "allow_outside_workspace": true
+    },
+    "paths": {
+        "catia": "C:\\CATIA\\V5-6R2017\\B27",
+        "release": "C:\\pytia\\release"
+    },
+    "files": {
+        "app": "pytia_reorder_tree.pyz",
+        "launcher": "pytia_reorder_tree.catvbs",
+        "workspace": "workspace.yml"
+    },
+    "tree": {
+        "create_groups": true,
+        "group_prefix": "GROUP ",
+        "group_postfix": "",
+        "IN_delimiter": " | ",
+        "IN_position": 1
+    },
+    "urls": {
+        "help": "https://github.com/deloarts/pytia-reorder-tree"
+    },
+    "mails": {
+        "admin": "admin@company.com"
+    }
+}

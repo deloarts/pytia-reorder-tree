@@ -1,0 +1,8 @@
+{
+    "project": "pytia.project",
+    "machine": "pytia.machine",
+    "creator": "pytia.creator",
+    "modifier": "pytia.modifier",
+    "group": "pytia.group",
+    "filter": "pytia.manufacturer"
+}
