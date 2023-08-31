@@ -28,15 +28,21 @@ class Groups:
         """
         self._caa = caa
         self._product = product
+        self._created_groups: List[Product] = []
 
     def create(self) -> None:
         """Creates the groups by the group property of every child in the product."""
         self._remove()
 
-        selection = ProductDocument(self._caa.active_document.com_object).selection
-        selection.clear()
-
         groups: Dict[str, int] = {"NO GROUP": 2}
+        # The groups dict contains the group name as key and the respective CATIA
+        # source as value (0 = unknown, 1 = made, 2 = bought).
+        # The source of `no groups` is 2, because the sorting algorithm moves bought
+        # nodes at the end of the product tree. So items with no group assigned will
+        # be positioned last.
+
+        self._created_groups = []
+
         with console.status("Reading existing groups from properties..."):
             for node in self._product.products:
                 props = PyProperties(node.reference_product)
@@ -52,9 +58,28 @@ class Groups:
                 source=groups[group],
                 index=index,
             )
+            self._created_groups.append(group_product)
+
+    def exclude_from_bom(self) -> None:
+        """Excludes all selected items from the bill of material.
+
+        Requires:
+            All product that shall be excluded from the bill of material must be
+            selected first (CATIA.Document.Selection).
+        """
+        selection = ProductDocument(self._caa.active_document.com_object).selection
+        selection.clear()
+        for group_product in self._created_groups:
             selection.add(group_product)
 
-        self._exclude_from_bom()
+        window = PropertyWindow(caa=self._caa)
+        try:
+            window.connect()
+            window.uncheck_bom()
+            window.btn_ok.click()
+        except WindowNotConnectedError:
+            pass
+
         selection.clear()
 
     def _create(self, name: str, value: str | None, source: int, index: int) -> Product:
@@ -96,18 +121,3 @@ class Groups:
             node_name = node.part_number
             self._product.products.remove(node.product)
             log.logger.info(f"Removed group identifier {node_name!r}.")
-
-    def _exclude_from_bom(self) -> None:
-        """Excludes all selected items from the bill of material.
-
-        Requires:
-            All product that shall be excluded from the bill of material must be
-            selected first (CATIA.Document.Selection).
-        """
-        window = PropertyWindow(caa=self._caa)
-        try:
-            window.connect()
-            window.uncheck_bom()
-            window.btn_ok.click()
-        except WindowNotConnectedError:
-            pass
