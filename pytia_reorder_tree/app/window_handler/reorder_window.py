@@ -49,7 +49,7 @@ class ReorderWindow(BaseWindow, WindowProtocol):
         try:
             self._caa.start_command(resource.applied_keywords.reorder_cmd_name)
             log.logger.info(
-                f"Command {resource.applied_keywords.reorder_cmd_name} issued."
+                f"Command {resource.applied_keywords.reorder_cmd_name!r} issued."
             )
 
             with console.status("Connecting to 'reorder graph tree' window..."):
@@ -58,7 +58,7 @@ class ReorderWindow(BaseWindow, WindowProtocol):
                 self._get_window_children()
 
             log.logger.info(
-                f"Connected to {resource.applied_keywords.reorder_window_name} window."
+                f"Connected to {resource.applied_keywords.reorder_window_name!r} window."
             )
         except Exception as e:
             raise WindowNotConnectedError(

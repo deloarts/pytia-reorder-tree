@@ -80,7 +80,7 @@ class ReorderWindow(BaseWindow, WindowProtocol):
         try:
             self._caa.start_command(resource.applied_keywords.reorder_cmd_name)
             log.logger.info(
-                f&#34;Command {resource.applied_keywords.reorder_cmd_name} issued.&#34;
+                f&#34;Command {resource.applied_keywords.reorder_cmd_name!r} issued.&#34;
             )
 
             with console.status(&#34;Connecting to &#39;reorder graph tree&#39; window...&#34;):
@@ -89,7 +89,7 @@ class ReorderWindow(BaseWindow, WindowProtocol):
                 self._get_window_children()
 
             log.logger.info(
-                f&#34;Connected to {resource.applied_keywords.reorder_window_name} window.&#34;
+                f&#34;Connected to {resource.applied_keywords.reorder_window_name!r} window.&#34;
             )
         except Exception as e:
             raise WindowNotConnectedError(
@@ -217,7 +217,7 @@ class ReorderWindow(BaseWindow, WindowProtocol):
         try:
             self._caa.start_command(resource.applied_keywords.reorder_cmd_name)
             log.logger.info(
-                f&#34;Command {resource.applied_keywords.reorder_cmd_name} issued.&#34;
+                f&#34;Command {resource.applied_keywords.reorder_cmd_name!r} issued.&#34;
             )
 
             with console.status(&#34;Connecting to &#39;reorder graph tree&#39; window...&#34;):
@@ -226,7 +226,7 @@ class ReorderWindow(BaseWindow, WindowProtocol):
                 self._get_window_children()
 
             log.logger.info(
-                f&#34;Connected to {resource.applied_keywords.reorder_window_name} window.&#34;
+                f&#34;Connected to {resource.applied_keywords.reorder_window_name!r} window.&#34;
             )
         except Exception as e:
             raise WindowNotConnectedError(
@@ -415,7 +415,7 @@ calling this method.</p>
     try:
         self._caa.start_command(resource.applied_keywords.reorder_cmd_name)
         log.logger.info(
-            f&#34;Command {resource.applied_keywords.reorder_cmd_name} issued.&#34;
+            f&#34;Command {resource.applied_keywords.reorder_cmd_name!r} issued.&#34;
         )
 
         with console.status(&#34;Connecting to &#39;reorder graph tree&#39; window...&#34;):
@@ -424,7 +424,7 @@ calling this method.</p>
             self._get_window_children()
 
         log.logger.info(
-            f&#34;Connected to {resource.applied_keywords.reorder_window_name} window.&#34;
+            f&#34;Connected to {resource.applied_keywords.reorder_window_name!r} window.&#34;
         )
     except Exception as e:
         raise WindowNotConnectedError(
