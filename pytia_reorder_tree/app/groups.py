@@ -3,11 +3,14 @@
     Handles the documents product flagged as group identifier.
 """
 
-from typing import Dict, List
+from typing import Dict
+from typing import List
 
-from app.log import console, log
+from app.log import console
+from app.log import log
 from app.window_handler.property_window import PropertyWindow
-from const import PROP_GROUP_IDENTIFIER, PROP_NO_BOM
+from const import PROP_GROUP_IDENTIFIER
+from const import PROP_NO_BOM
 from exceptions import WindowNotConnectedError
 from pycatia.in_interfaces.application import Application
 from pycatia.product_structure_interfaces.product import Product
