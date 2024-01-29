@@ -315,6 +315,7 @@ On a new revision, do the following:
 
 ## 7 changelog
 
+[**v0.1.2**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.2): Fix deprecation & logon.  
 [**v0.1.1**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.1): Run `hide from bom` command last.  
 [**v0.1.0**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.0): Initial commit.  
 
