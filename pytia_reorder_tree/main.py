@@ -8,7 +8,10 @@
 import atexit
 import os
 
-from const import APP_VERSION, LOGS, PID, PID_FILE
+from const import APP_VERSION
+from const import LOGS
+from const import PID
+from const import PID_FILE
 from dependencies import deps
 
 

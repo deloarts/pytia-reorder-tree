@@ -29,7 +29,7 @@
 <pre><code class="python">import os
 from pathlib import Path
 
-__version__ = &#34;0.1.1&#34;
+__version__ = &#34;0.1.2&#34;
 
 PYTIA = &#34;pytia&#34;
 PYTIA_REORDER_TREE = &#34;pytia_reorder_tree&#34;
@@ -37,7 +37,7 @@ PYTIA_REORDER_TREE = &#34;pytia_reorder_tree&#34;
 APP_NAME = &#34;Reorder Tree&#34;
 APP_VERSION = __version__
 
-LOGON = str(os.environ.get(&#34;USERNAME&#34;))
+LOGON = str(os.environ.get(&#34;USERNAME&#34;)).lower()
 CNEXT = &#34;win_b64\\code\\bin\\CNEXT.exe&#34;
 TEMP = str(os.environ.get(&#34;TEMP&#34;))
 TEMP_EXPORT = Path(TEMP, PYTIA_REORDER_TREE, &#34;export&#34;)

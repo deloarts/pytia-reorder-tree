@@ -3,11 +3,11 @@
 A python app for reordering the graph tree from a CATIA V5 product.
 
 ![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
-![version](https://img.shields.io/badge/Version-0.1.1-orange.svg?style=for-the-badge)
+![version](https://img.shields.io/github/v/release/deloarts/pytia-reorder-tree?style=for-the-badge&color=orange)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
 ![catia](https://img.shields.io/badge/CATIA-V5%206R2017-blue.svg?style=for-the-badge)
-![OS](https://img.shields.io/badge/OS-WIN10%20|%20WIN11-blue.svg?style=for-the-badge)
+![OS](https://img.shields.io/badge/OS-WIN11-blue.svg?style=for-the-badge)
 
 > ⚠️ The layout of this app is heavily biased towards the workflow and needs of my companies' engineering team. Although almost everything can be changed via config files and presets, the apps basic functionality is built to work in the environment of said company.
 
@@ -59,6 +59,8 @@ Table of contents:
 ## 1 installation
 
 > ✏️ For a guided installation visit [https://pytia.deloarts.com](https://pytia.deloarts.com/installation/v0.html)
+>
+> ⚠️ Do not manually install any dependencies. The app installs all required packages on its own.
 
 On the users machine you need to install the following:
 
@@ -313,8 +315,9 @@ On a new revision, do the following:
 
 ## 7 changelog
 
-**v0.1.1**: Run `hide from bom` command last.  
-**v0.1.0**: Initial commit.  
+[**v0.1.2**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.2): Fix deprecation & logon.  
+[**v0.1.1**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.1): Run `hide from bom` command last.  
+[**v0.1.0**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.0): Initial commit.  
 
 ## 8 to dos
 

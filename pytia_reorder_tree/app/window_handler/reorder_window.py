@@ -5,12 +5,14 @@
 
 from time import sleep
 
-from app.log import console, log
+from app.log import console
+from app.log import log
 from app.protocols.window_protocol import WindowProtocol
 from app.window_handler import BaseWindow
 from exceptions import WindowNotConnectedError
 from pycatia.in_interfaces.application import Application
-from pywinauto.controls.win32_controls import ButtonWrapper, ListBoxWrapper
+from pywinauto.controls.win32_controls import ButtonWrapper
+from pywinauto.controls.win32_controls import ListBoxWrapper
 from resources import resource
 
 

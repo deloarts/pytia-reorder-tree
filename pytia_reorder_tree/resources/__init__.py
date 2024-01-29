@@ -10,22 +10,27 @@ import importlib.resources
 import json
 import os
 import tkinter.messagebox as tkmsg
-from dataclasses import asdict, dataclass, field, fields
+from dataclasses import asdict
+from dataclasses import dataclass
+from dataclasses import field
+from dataclasses import fields
 from json.decoder import JSONDecodeError
 from pathlib import Path
-from typing import Dict, List, Literal, Optional, Protocol
+from typing import Dict
+from typing import List
+from typing import Literal
+from typing import Optional
+from typing import Protocol
 
-from const import (
-    APP_VERSION,
-    APPDATA,
-    CONFIG_APPDATA,
-    CONFIG_KEYWORDS,
-    CONFIG_PROPS,
-    CONFIG_PROPS_DEFAULT,
-    CONFIG_SETTINGS,
-    CONFIG_USERS,
-    LOGON,
-)
+from const import APP_VERSION
+from const import APPDATA
+from const import CONFIG_APPDATA
+from const import CONFIG_KEYWORDS
+from const import CONFIG_PROPS
+from const import CONFIG_PROPS_DEFAULT
+from const import CONFIG_SETTINGS
+from const import CONFIG_USERS
+from const import LOGON
 from resources.utils import expand_env_vars
 
 

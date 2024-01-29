@@ -5,7 +5,8 @@
 
 from time import sleep
 
-from app.log import console, log
+from app.log import console
+from app.log import log
 from app.protocols.window_protocol import WindowProtocol
 from app.window_handler import BaseWindow
 from exceptions import WindowNotConnectedError
