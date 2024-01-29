@@ -9,7 +9,7 @@ PYTIA_REORDER_TREE = "pytia_reorder_tree"
 APP_NAME = "Reorder Tree"
 APP_VERSION = __version__
 
-LOGON = str(os.environ.get("USERNAME"))
+LOGON = str(os.environ.get("USERNAME")).lower()
 CNEXT = "win_b64\\code\\bin\\CNEXT.exe"
 TEMP = str(os.environ.get("TEMP"))
 TEMP_EXPORT = Path(TEMP, PYTIA_REORDER_TREE, "export")
