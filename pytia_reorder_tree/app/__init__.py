@@ -8,6 +8,7 @@ from app.exit import Exit
 from app.groups import Groups
 from app.log import log
 from app.permissions import Permissions
+from app.renumbering import Renumbering
 from app.sort import Sort
 from app.utils import get_ui_language
 from app.window_handler.reorder_window import ReorderWindow
@@ -81,8 +82,15 @@ def run() -> None:
         graph_tree_window.btn_apply.click()
         graph_tree_window.btn_ok.click()
     except Exception as e:
-        log.logger.exception(f"Failed to sort items: {e}")
+        log.logger.exception(f"Failed to sort nodes: {e}")
         graph_tree_window.btn_abort.click()
+
+    # Renumber all nodes in the product tree.
+    try:
+        renumbering = Renumbering(caa=caa, product=product)
+        renumbering.renumber_all_nodes()
+    except Exception as e:
+        log.logger.exception(f"Failed to renumber nodes: {e}")
 
     # Exclude the created groups (CATIA Product Components) from the bill of material.
     # This is done at last, because the `hide from bill of material` option of the
