@@ -52,8 +52,15 @@ def run() -> None:
     # Create new groups (CATIA Product Components)
     groups: Groups | None = None
     if resource.settings.tree.create_groups:
-        groups = Groups(caa=caa, product=product)
-        groups.create()
+        try:
+            groups = Groups(caa=caa, product=product)
+            groups.create()
+        except Exception as e:
+            log.logger.error(
+                "Failed to create groups. Maybe some nodes in the tree are invalid. "
+                f"Verbose: {e}"
+            )
+            Exit().keep_open()
 
     # Select the main product and start the reorder graph tree window
     selection.clear()
