@@ -96,6 +96,8 @@ class SettingsTree:
     group_postfix: str
     IN_delimiter: str
     IN_position: int
+    renumber: bool
+    start_index: int
 
 
 @dataclass(slots=True, kw_only=True, frozen=True)
