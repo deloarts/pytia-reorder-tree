@@ -4,11 +4,13 @@
 """
 
 from time import sleep
+from tkinter import messagebox as tkmsg
 
 from app.log import console
 from app.log import log
 from app.protocols.window_protocol import WindowProtocol
 from app.window_handler import BaseWindow
+from const import TOPLEVEL
 from exceptions import WindowNotConnectedError
 from pycatia.in_interfaces.application import Application
 from pywinauto.controls.common_controls import TabControlWrapper
@@ -117,6 +119,19 @@ class PropertyWindow(BaseWindow, WindowProtocol):
             ]
         ):
             self._product_tab_visible = True
+
+        elif tkmsg.askokcancel(
+            title=resource.settings.title,
+            message=(
+                "The 'Product' tab isn't visible.\n\n"
+                "Please select the 'Product' tab in the properties window and "
+                "click OK.\n\nClick cancel to proceed without excluding the "
+                "selected items from the bill of material."
+            ),
+            parent=TOPLEVEL,
+        ):
+            self._get_window()
+            self._get_window_children()
 
     @property
     def product_tab_visible(self) -> bool:
