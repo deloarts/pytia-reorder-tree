@@ -32,8 +32,8 @@ Sub CATMain()
     VenvFolder = AppData & "\.env"
     VenvVersionFolder = VenvFolder & "\{{ version }}"
     PythonVersionFile = AppData & "\pyversion.txt"
-    ' PythonwExe = VenvVersionFolder & "\Scripts\pythonw.exe"
-    PythonwExe = VenvVersionFolder & "\Scripts\python.exe"
+    PythonwExe = VenvVersionFolder & "\Scripts\pythonw.exe"
+    ' PythonwExe = VenvVersionFolder & "\Scripts\python.exe"
 
     ' MsgBox configuration
     Title = "{{ title }} Launcher"
