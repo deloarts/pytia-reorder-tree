@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>pytia_reorder_tree.app API documentation</title>
-<meta name="description" content="" />
+<title>pytia_reorder_tree.handler.window_handler API documentation</title>
+<meta name="description" content="Window handler submodule.
+This module holds the base class for all window classes." />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,28 +20,65 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>pytia_reorder_tree.app</code></h1>
+<h1 class="title">Module <code>pytia_reorder_tree.handler.window_handler</code></h1>
 </header>
 <section id="section-intro">
+<p>Window handler submodule.
+This module holds the base class for all window classes.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    Window handler submodule.
+    This module holds the base class for all window classes.
+&#34;&#34;&#34;
+
+from pycatia.in_interfaces.application import Application
+from pywinauto import Desktop
+
+
+class BaseWindow:
+    &#34;&#34;&#34;Base window class for this submodule.&#34;&#34;&#34;
+
+    def __init__(self, caa: Application, window_name: str) -&gt; None:
+        &#34;&#34;&#34;Inits the class.
+
+        Args:
+            caa (Application): The catia application instance.
+            window_name (str): The name of the window to which the connection must be \
+                established.
+        &#34;&#34;&#34;
+        self._caa = caa
+        self._window = None
+        self._window_name = window_name
+
+    def _get_window(self) -&gt; None:
+        &#34;&#34;&#34;
+        Gets the window by name from all open windows.
+        Window name ist setup at instantiation.
+        &#34;&#34;&#34;
+        windows = Desktop().windows()
+        self._window = None
+        for window in windows:
+            if self._window_name in window.window_text():
+                window.set_focus()
+                self._window = window
+        assert self._window is not None</code></pre>
+</details>
 </section>
 <section>
 <h2 class="section-title" id="header-submodules">Sub-modules</h2>
 <dl>
-<dt><code class="name"><a title="pytia_reorder_tree.app.frames" href="frames.html">pytia_reorder_tree.app.frames</a></code></dt>
+<dt><code class="name"><a title="pytia_reorder_tree.handler.window_handler.property_window" href="property_window.html">pytia_reorder_tree.handler.window_handler.property_window</a></code></dt>
 <dd>
-<div class="desc"><p>Frames submodule for the main window.</p></div>
+<div class="desc"><p>CATIA Properties window handler.
+This module handles the properties window of product tree nodes.</p></div>
 </dd>
-<dt><code class="name"><a title="pytia_reorder_tree.app.layout" href="layout.html">pytia_reorder_tree.app.layout</a></code></dt>
+<dt><code class="name"><a title="pytia_reorder_tree.handler.window_handler.reorder_window" href="reorder_window.html">pytia_reorder_tree.handler.window_handler.reorder_window</a></code></dt>
 <dd>
-<div class="desc"><p>The layout of the app.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia_reorder_tree.app.traces" href="traces.html">pytia_reorder_tree.app.traces</a></code></dt>
-<dd>
-<div class="desc"><p>Traces submodule for the app.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia_reorder_tree.app.vars" href="vars.html">pytia_reorder_tree.app.vars</a></code></dt>
-<dd>
-<div class="desc"><p>The variables submodule for the app.</p></div>
+<div class="desc"><p>CATIA Reorder Graph Tree window handler.
+This module handles the graph tree window command.</p></div>
 </dd>
 </dl>
 </section>
@@ -49,6 +87,57 @@
 <section>
 </section>
 <section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia_reorder_tree.handler.window_handler.BaseWindow"><code class="flex name class">
+<span>class <span class="ident">BaseWindow</span></span>
+<span>(</span><span>caa: pycatia.in_interfaces.application.Application, window_name: str)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Base window class for this submodule.</p>
+<p>Inits the class.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>caa</code></strong> :&ensp;<code>Application</code></dt>
+<dd>The catia application instance.</dd>
+<dt><strong><code>window_name</code></strong> :&ensp;<code>str</code></dt>
+<dd>The name of the window to which the connection must be
+established.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class BaseWindow:
+    &#34;&#34;&#34;Base window class for this submodule.&#34;&#34;&#34;
+
+    def __init__(self, caa: Application, window_name: str) -&gt; None:
+        &#34;&#34;&#34;Inits the class.
+
+        Args:
+            caa (Application): The catia application instance.
+            window_name (str): The name of the window to which the connection must be \
+                established.
+        &#34;&#34;&#34;
+        self._caa = caa
+        self._window = None
+        self._window_name = window_name
+
+    def _get_window(self) -&gt; None:
+        &#34;&#34;&#34;
+        Gets the window by name from all open windows.
+        Window name ist setup at instantiation.
+        &#34;&#34;&#34;
+        windows = Desktop().windows()
+        self._window = None
+        for window in windows:
+            if self._window_name in window.window_text():
+                window.set_focus()
+                self._window = window
+        assert self._window is not None</code></pre>
+</details>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -59,15 +148,20 @@
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="pytia_reorder_tree" href="../index.html">pytia_reorder_tree</a></code></li>
+<li><code><a title="pytia_reorder_tree.handler" href="../index.html">pytia_reorder_tree.handler</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-submodules">Sub-modules</a></h3>
 <ul>
-<li><code><a title="pytia_reorder_tree.app.frames" href="frames.html">pytia_reorder_tree.app.frames</a></code></li>
-<li><code><a title="pytia_reorder_tree.app.layout" href="layout.html">pytia_reorder_tree.app.layout</a></code></li>
-<li><code><a title="pytia_reorder_tree.app.traces" href="traces.html">pytia_reorder_tree.app.traces</a></code></li>
-<li><code><a title="pytia_reorder_tree.app.vars" href="vars.html">pytia_reorder_tree.app.vars</a></code></li>
+<li><code><a title="pytia_reorder_tree.handler.window_handler.property_window" href="property_window.html">pytia_reorder_tree.handler.window_handler.property_window</a></code></li>
+<li><code><a title="pytia_reorder_tree.handler.window_handler.reorder_window" href="reorder_window.html">pytia_reorder_tree.handler.window_handler.reorder_window</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia_reorder_tree.handler.window_handler.BaseWindow" href="#pytia_reorder_tree.handler.window_handler.BaseWindow">BaseWindow</a></code></h4>
+</li>
 </ul>
 </li>
 </ul>

@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>pytia_reorder_tree.gui API documentation</title>
+<meta name="description" content="The main window for the application." />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>pytia_reorder_tree.gui</code></h1>
+</header>
+<section id="section-intro">
+<p>The main window for the application.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    The main window for the application.
+&#34;&#34;&#34;
+
+import tkinter as tk
+from pathlib import Path
+from tkinter import font
+
+import ttkbootstrap as ttk
+from app.frames import Frames
+from app.layout import Layout
+from app.traces import Traces
+from app.vars import Variables
+from const import APP_VERSION
+from const import LOG
+from const import LOGS
+from exceptions import WarningError
+from pytia.exceptions import PytiaBodyEmptyError
+from pytia.exceptions import PytiaDifferentDocumentError
+from pytia.exceptions import PytiaDocumentNotSavedError
+from pytia.exceptions import PytiaNoDocumentOpenError
+from pytia.exceptions import PytiaPropertyNotFoundError
+from pytia.exceptions import PytiaWrongDocumentTypeError
+from pytia_ui_tools.exceptions import PytiaUiToolsOutsideWorkspaceError
+from pytia_ui_tools.handlers.error_handler import ErrorHandler
+from pytia_ui_tools.handlers.mail_handler import MailHandler
+from pytia_ui_tools.window_manager import WindowManager
+from resources import resource
+from task import Task
+
+
+class GUI(tk.Tk):
+    &#34;&#34;&#34;The user interface of the app.&#34;&#34;&#34;
+
+    WIDTH = 360
+    HEIGHT = 75
+
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;Inits the main window.&#34;&#34;&#34;
+        ttk.tk.Tk.__init__(self)
+        self.style = ttk.Style(theme=&#34;darkly&#34;)
+
+        # CLASS VARS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        self.vars = Variables(root=self)
+        self.frames = Frames(root=self)
+        self.layout = Layout(
+            root=self,
+            frames=self.frames,
+            variables=self.vars,
+        )
+
+        self.readonly = bool(
+            not resource.logon_exists()
+            and not resource.settings.restrictions.allow_all_users
+        )
+
+        # UI TOOLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        self.window_manager = WindowManager(self)
+        self.mail_handler = MailHandler(
+            standard_receiver=resource.settings.mails.admin,
+            app_title=resource.settings.title,
+            app_version=APP_VERSION,
+            logfile=Path(LOGS, LOG),
+        )
+        self.error_handler = ErrorHandler(
+            mail_handler=self.mail_handler,
+            warning_exceptions=[
+                WarningError,
+                PytiaNoDocumentOpenError,
+                PytiaWrongDocumentTypeError,
+                PytiaBodyEmptyError,
+                PytiaPropertyNotFoundError,
+                PytiaDifferentDocumentError,
+                PytiaDocumentNotSavedError,
+                PytiaUiToolsOutsideWorkspaceError,
+            ],
+        )
+
+        # UI INIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        self.title(
+            f&#34;{resource.settings.title} &#34;
+            f&#34;{&#39;(DEBUG MODE)&#39; if resource.settings.debug else APP_VERSION}&#34;
+            f&#34;{&#39; (READ ONLY)&#39; if self.readonly else &#39;&#39;}&#34;
+        )
+        self.overrideredirect(True)
+        self.attributes(&#34;-topmost&#34;, True)
+        self.attributes(&#34;-toolwindow&#34;, True)
+        self.resizable(False, False)
+        self.config(cursor=&#34;wait&#34;)
+        self.default_font = font.nametofont(&#34;TkDefaultFont&#34;)
+        self.default_font.configure(family=&#34;Segoe UI&#34;, size=9)
+        self.report_callback_exception = self.error_handler.exceptions_callback
+
+        x_coordinate = int((self.winfo_screenwidth() / 2) - (GUI.WIDTH / 2))
+        y_coordinate = resource.settings.top
+        self.geometry(f&#34;{GUI.WIDTH}x{GUI.HEIGHT}+{x_coordinate}+{y_coordinate}&#34;)
+        self.minsize(width=GUI.WIDTH, height=GUI.HEIGHT)
+
+        self.update()
+        self.window_manager.remove_window_buttons()
+
+    def run(self) -&gt; None:
+        &#34;&#34;&#34;Run the app.&#34;&#34;&#34;
+        self.after(100, self.run_controller)
+        self.mainloop()
+
+    def run_controller(self) -&gt; None:
+        &#34;&#34;&#34;Runs all controllers. Initializes all lazy loaders, bindings and traces.&#34;&#34;&#34;
+        self.traces()
+
+        task = Task(root=self, vars=self.vars)
+        task.run()
+
+    def traces(self) -&gt; None:
+        &#34;&#34;&#34;Instantiates the traces class.&#34;&#34;&#34;
+        Traces(
+            root=self,
+            variables=self.vars,
+            layout=self.layout,
+        )</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="pytia_reorder_tree.gui.GUI"><code class="flex name class">
+<span>class <span class="ident">GUI</span></span>
+</code></dt>
+<dd>
+<div class="desc"><p>The user interface of the app.</p>
+<p>Inits the main window.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class GUI(tk.Tk):
+    &#34;&#34;&#34;The user interface of the app.&#34;&#34;&#34;
+
+    WIDTH = 360
+    HEIGHT = 75
+
+    def __init__(self) -&gt; None:
+        &#34;&#34;&#34;Inits the main window.&#34;&#34;&#34;
+        ttk.tk.Tk.__init__(self)
+        self.style = ttk.Style(theme=&#34;darkly&#34;)
+
+        # CLASS VARS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        self.vars = Variables(root=self)
+        self.frames = Frames(root=self)
+        self.layout = Layout(
+            root=self,
+            frames=self.frames,
+            variables=self.vars,
+        )
+
+        self.readonly = bool(
+            not resource.logon_exists()
+            and not resource.settings.restrictions.allow_all_users
+        )
+
+        # UI TOOLS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        self.window_manager = WindowManager(self)
+        self.mail_handler = MailHandler(
+            standard_receiver=resource.settings.mails.admin,
+            app_title=resource.settings.title,
+            app_version=APP_VERSION,
+            logfile=Path(LOGS, LOG),
+        )
+        self.error_handler = ErrorHandler(
+            mail_handler=self.mail_handler,
+            warning_exceptions=[
+                WarningError,
+                PytiaNoDocumentOpenError,
+                PytiaWrongDocumentTypeError,
+                PytiaBodyEmptyError,
+                PytiaPropertyNotFoundError,
+                PytiaDifferentDocumentError,
+                PytiaDocumentNotSavedError,
+                PytiaUiToolsOutsideWorkspaceError,
+            ],
+        )
+
+        # UI INIT ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        self.title(
+            f&#34;{resource.settings.title} &#34;
+            f&#34;{&#39;(DEBUG MODE)&#39; if resource.settings.debug else APP_VERSION}&#34;
+            f&#34;{&#39; (READ ONLY)&#39; if self.readonly else &#39;&#39;}&#34;
+        )
+        self.overrideredirect(True)
+        self.attributes(&#34;-topmost&#34;, True)
+        self.attributes(&#34;-toolwindow&#34;, True)
+        self.resizable(False, False)
+        self.config(cursor=&#34;wait&#34;)
+        self.default_font = font.nametofont(&#34;TkDefaultFont&#34;)
+        self.default_font.configure(family=&#34;Segoe UI&#34;, size=9)
+        self.report_callback_exception = self.error_handler.exceptions_callback
+
+        x_coordinate = int((self.winfo_screenwidth() / 2) - (GUI.WIDTH / 2))
+        y_coordinate = resource.settings.top
+        self.geometry(f&#34;{GUI.WIDTH}x{GUI.HEIGHT}+{x_coordinate}+{y_coordinate}&#34;)
+        self.minsize(width=GUI.WIDTH, height=GUI.HEIGHT)
+
+        self.update()
+        self.window_manager.remove_window_buttons()
+
+    def run(self) -&gt; None:
+        &#34;&#34;&#34;Run the app.&#34;&#34;&#34;
+        self.after(100, self.run_controller)
+        self.mainloop()
+
+    def run_controller(self) -&gt; None:
+        &#34;&#34;&#34;Runs all controllers. Initializes all lazy loaders, bindings and traces.&#34;&#34;&#34;
+        self.traces()
+
+        task = Task(root=self, vars=self.vars)
+        task.run()
+
+    def traces(self) -&gt; None:
+        &#34;&#34;&#34;Instantiates the traces class.&#34;&#34;&#34;
+        Traces(
+            root=self,
+            variables=self.vars,
+            layout=self.layout,
+        )</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>tkinter.Tk</li>
+<li>tkinter.Misc</li>
+<li>tkinter.Wm</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.gui.GUI.HEIGHT"><code class="name">var <span class="ident">HEIGHT</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="pytia_reorder_tree.gui.GUI.WIDTH"><code class="name">var <span class="ident">WIDTH</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="pytia_reorder_tree.gui.GUI.run"><code class="name flex">
+<span>def <span class="ident">run</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Run the app.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run(self) -&gt; None:
+    &#34;&#34;&#34;Run the app.&#34;&#34;&#34;
+    self.after(100, self.run_controller)
+    self.mainloop()</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.gui.GUI.run_controller"><code class="name flex">
+<span>def <span class="ident">run_controller</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Runs all controllers. Initializes all lazy loaders, bindings and traces.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def run_controller(self) -&gt; None:
+    &#34;&#34;&#34;Runs all controllers. Initializes all lazy loaders, bindings and traces.&#34;&#34;&#34;
+    self.traces()
+
+    task = Task(root=self, vars=self.vars)
+    task.run()</code></pre>
+</details>
+</dd>
+<dt id="pytia_reorder_tree.gui.GUI.traces"><code class="name flex">
+<span>def <span class="ident">traces</span></span>(<span>self) ‑> None</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Instantiates the traces class.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def traces(self) -&gt; None:
+    &#34;&#34;&#34;Instantiates the traces class.&#34;&#34;&#34;
+    Traces(
+        root=self,
+        variables=self.vars,
+        layout=self.layout,
+    )</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="pytia_reorder_tree" href="index.html">pytia_reorder_tree</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="pytia_reorder_tree.gui.GUI" href="#pytia_reorder_tree.gui.GUI">GUI</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.gui.GUI.HEIGHT" href="#pytia_reorder_tree.gui.GUI.HEIGHT">HEIGHT</a></code></li>
+<li><code><a title="pytia_reorder_tree.gui.GUI.WIDTH" href="#pytia_reorder_tree.gui.GUI.WIDTH">WIDTH</a></code></li>
+<li><code><a title="pytia_reorder_tree.gui.GUI.run" href="#pytia_reorder_tree.gui.GUI.run">run</a></code></li>
+<li><code><a title="pytia_reorder_tree.gui.GUI.run_controller" href="#pytia_reorder_tree.gui.GUI.run_controller">run_controller</a></code></li>
+<li><code><a title="pytia_reorder_tree.gui.GUI.traces" href="#pytia_reorder_tree.gui.GUI.traces">traces</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>

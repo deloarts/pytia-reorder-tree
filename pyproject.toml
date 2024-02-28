@@ -5,7 +5,7 @@ description = "A command line tool for reordering the graph tree of a CATProduct
 name = "pytia-reorder-tree"
 packages = [{include = "pytia_reorder_tree"}]
 readme = "README.md"
-version = "0.1.2"
+version = "0.2.0"
 
 [tool.poetry.dependencies]
 comtypes = "1.2.0"

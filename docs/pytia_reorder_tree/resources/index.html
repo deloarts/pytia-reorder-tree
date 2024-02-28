@@ -127,6 +127,8 @@ class SettingsTree:
     group_postfix: str
     IN_delimiter: str
     IN_position: int
+    renumber: bool
+    start_index: int
 
 
 @dataclass(slots=True, kw_only=True, frozen=True)
@@ -149,6 +151,7 @@ class Settings:  # pylint: disable=R0902
 
     title: str
     debug: bool
+    top: int
     restrictions: SettingsRestrictions
     paths: SettingsPaths
     files: SettingsFiles
@@ -440,7 +443,7 @@ resource = Resources()</code></pre>
 <dl>
 <dt id="pytia_reorder_tree.resources.AppData"><code class="flex name class">
 <span>class <span class="ident">AppData</span></span>
-<span>(</span><span>*, version: str = '0.1.2', counter: int = 0, disable_volume_warning: bool = False)</span>
+<span>(</span><span>*, version: str = '0.2.0', counter: int = 0, disable_volume_warning: bool = False)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Dataclass for appdata settings.</p></div>
@@ -1173,7 +1176,7 @@ current session if logon is omitted.</p>
 </dd>
 <dt id="pytia_reorder_tree.resources.Settings"><code class="flex name class">
 <span>class <span class="ident">Settings</span></span>
-<span>(</span><span>*, title: str, debug: bool, restrictions: <a title="pytia_reorder_tree.resources.SettingsRestrictions" href="#pytia_reorder_tree.resources.SettingsRestrictions">SettingsRestrictions</a>, paths: <a title="pytia_reorder_tree.resources.SettingsPaths" href="#pytia_reorder_tree.resources.SettingsPaths">SettingsPaths</a>, files: <a title="pytia_reorder_tree.resources.SettingsFiles" href="#pytia_reorder_tree.resources.SettingsFiles">SettingsFiles</a>, tree: <a title="pytia_reorder_tree.resources.SettingsTree" href="#pytia_reorder_tree.resources.SettingsTree">SettingsTree</a>, urls: <a title="pytia_reorder_tree.resources.SettingsUrls" href="#pytia_reorder_tree.resources.SettingsUrls">SettingsUrls</a>, mails: <a title="pytia_reorder_tree.resources.SettingsMails" href="#pytia_reorder_tree.resources.SettingsMails">SettingsMails</a>)</span>
+<span>(</span><span>*, title: str, debug: bool, top: int, restrictions: <a title="pytia_reorder_tree.resources.SettingsRestrictions" href="#pytia_reorder_tree.resources.SettingsRestrictions">SettingsRestrictions</a>, paths: <a title="pytia_reorder_tree.resources.SettingsPaths" href="#pytia_reorder_tree.resources.SettingsPaths">SettingsPaths</a>, files: <a title="pytia_reorder_tree.resources.SettingsFiles" href="#pytia_reorder_tree.resources.SettingsFiles">SettingsFiles</a>, tree: <a title="pytia_reorder_tree.resources.SettingsTree" href="#pytia_reorder_tree.resources.SettingsTree">SettingsTree</a>, urls: <a title="pytia_reorder_tree.resources.SettingsUrls" href="#pytia_reorder_tree.resources.SettingsUrls">SettingsUrls</a>, mails: <a title="pytia_reorder_tree.resources.SettingsMails" href="#pytia_reorder_tree.resources.SettingsMails">SettingsMails</a>)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Dataclass for settings (settings.json).</p></div>
@@ -1187,6 +1190,7 @@ class Settings:  # pylint: disable=R0902
 
     title: str
     debug: bool
+    top: int
     restrictions: SettingsRestrictions
     paths: SettingsPaths
     files: SettingsFiles
@@ -1227,6 +1231,10 @@ class Settings:  # pylint: disable=R0902
 <div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
 </dd>
 <dt id="pytia_reorder_tree.resources.Settings.title"><code class="name">var <span class="ident">title</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.Settings.top"><code class="name">var <span class="ident">top</span> : int</code></dt>
 <dd>
 <div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
 </dd>
@@ -1440,7 +1448,7 @@ class SettingsRestrictions:
 </dd>
 <dt id="pytia_reorder_tree.resources.SettingsTree"><code class="flex name class">
 <span>class <span class="ident">SettingsTree</span></span>
-<span>(</span><span>*, create_groups: bool, group_prefix: str, group_postfix: str, IN_delimiter: str, IN_position: int)</span>
+<span>(</span><span>*, create_groups: bool, group_prefix: str, group_postfix: str, IN_delimiter: str, IN_position: int, renumber: bool, start_index: int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Dataclass for tree options (settings.json).</p></div>
@@ -1456,7 +1464,9 @@ class SettingsTree:
     group_prefix: str
     group_postfix: str
     IN_delimiter: str
-    IN_position: int</code></pre>
+    IN_position: int
+    renumber: bool
+    start_index: int</code></pre>
 </details>
 <h3>Instance variables</h3>
 <dl>
@@ -1477,6 +1487,14 @@ class SettingsTree:
 <div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
 </dd>
 <dt id="pytia_reorder_tree.resources.SettingsTree.group_prefix"><code class="name">var <span class="ident">group_prefix</span> : str</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsTree.renumber"><code class="name">var <span class="ident">renumber</span> : bool</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
+</dd>
+<dt id="pytia_reorder_tree.resources.SettingsTree.start_index"><code class="name">var <span class="ident">start_index</span> : int</code></dt>
 <dd>
 <div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
 </dd>
@@ -1681,6 +1699,7 @@ def values(self) -&gt; List[str]:
 <li><code><a title="pytia_reorder_tree.resources.Settings.paths" href="#pytia_reorder_tree.resources.Settings.paths">paths</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.Settings.restrictions" href="#pytia_reorder_tree.resources.Settings.restrictions">restrictions</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.Settings.title" href="#pytia_reorder_tree.resources.Settings.title">title</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.Settings.top" href="#pytia_reorder_tree.resources.Settings.top">top</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.Settings.tree" href="#pytia_reorder_tree.resources.Settings.tree">tree</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.Settings.urls" href="#pytia_reorder_tree.resources.Settings.urls">urls</a></code></li>
 </ul>
@@ -1733,12 +1752,14 @@ def values(self) -&gt; List[str]:
 </li>
 <li>
 <h4><code><a title="pytia_reorder_tree.resources.SettingsTree" href="#pytia_reorder_tree.resources.SettingsTree">SettingsTree</a></code></h4>
-<ul class="">
+<ul class="two-column">
 <li><code><a title="pytia_reorder_tree.resources.SettingsTree.IN_delimiter" href="#pytia_reorder_tree.resources.SettingsTree.IN_delimiter">IN_delimiter</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.SettingsTree.IN_position" href="#pytia_reorder_tree.resources.SettingsTree.IN_position">IN_position</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.SettingsTree.create_groups" href="#pytia_reorder_tree.resources.SettingsTree.create_groups">create_groups</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.SettingsTree.group_postfix" href="#pytia_reorder_tree.resources.SettingsTree.group_postfix">group_postfix</a></code></li>
 <li><code><a title="pytia_reorder_tree.resources.SettingsTree.group_prefix" href="#pytia_reorder_tree.resources.SettingsTree.group_prefix">group_prefix</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsTree.renumber" href="#pytia_reorder_tree.resources.SettingsTree.renumber">renumber</a></code></li>
+<li><code><a title="pytia_reorder_tree.resources.SettingsTree.start_index" href="#pytia_reorder_tree.resources.SettingsTree.start_index">start_index</a></code></li>
 </ul>
 </li>
 <li>
