@@ -73,7 +73,7 @@ class Task:
                     f"Verbose: {e}"
                 )
                 log.error(msg)
-                raise WarningError(msg)
+                raise WarningError(msg) from e
 
     def _sort_nodes(self) -> None:
         self._update_info("Connecting to graph tree window...")
@@ -106,7 +106,7 @@ class Task:
             msg = f"Failed to sort nodes: {e}"
             log.error(msg)
             graph_tree_window.btn_abort.click()
-            raise WarningError(msg)
+            raise WarningError(msg) from e
 
     def _renumber_nodes(self) -> None:
         self._update_info("Renumbering all nodes...")
@@ -118,9 +118,10 @@ class Task:
         except Exception as e:
             msg = f"Failed to renumber nodes: {e}"
             log.error(msg)
-            raise WarningError(msg)
+            raise WarningError(msg) from e
 
     def run(self) -> None:
+        """Runs all tasks."""
         self._create_groups()
         self._sort_nodes()
         self._renumber_nodes()

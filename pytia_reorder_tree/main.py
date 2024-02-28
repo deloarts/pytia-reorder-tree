@@ -27,7 +27,7 @@ def main() -> None:
     from gui import GUI  # pylint: disable=C0415
     from pytia.log import log  # pylint: disable=C0415
 
-    with open(PID_FILE, "w") as f:
+    with open(PID_FILE, "w", encoding="utf8") as f:
         f.write(str(PID))
     atexit.register(lambda: os.remove(PID_FILE))
 

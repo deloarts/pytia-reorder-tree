@@ -1,3 +1,5 @@
+"""Constants for the app."""
+
 import os
 from pathlib import Path
 

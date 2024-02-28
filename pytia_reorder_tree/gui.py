@@ -5,7 +5,6 @@
 import tkinter as tk
 from pathlib import Path
 from tkinter import font
-from tkinter import messagebox as tkmsg
 
 import ttkbootstrap as ttk
 from app.frames import Frames

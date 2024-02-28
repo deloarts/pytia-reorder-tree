@@ -7,8 +7,6 @@ from tkinter import Tk
 from app.layout import Layout
 from app.vars import Variables
 from pytia.log import log
-from pytia_ui_tools.handlers.workspace_handler import Workspace
-from ttkbootstrap import Style
 
 
 class Traces:
