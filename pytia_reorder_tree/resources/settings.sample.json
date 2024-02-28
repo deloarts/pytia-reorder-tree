@@ -1,6 +1,7 @@
 {
     "title": "PYTIA Reorder Tree",
     "debug": false,
+    "top": 40,
     "restrictions": {
         "allow_all_users": false,
         "allow_all_editors": false,
@@ -20,7 +21,9 @@
         "group_prefix": "GROUP ",
         "group_postfix": "",
         "IN_delimiter": " | ",
-        "IN_position": 1
+        "IN_position": 1,
+        "renumber": true,
+        "start_index": 1
     },
     "urls": {
         "help": "https://github.com/deloarts/pytia-reorder-tree"

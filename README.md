@@ -147,8 +147,9 @@ After the installation you can run the app using the launcher:
 The app runs fully automatic:
 
 - It scans the product for existing `group identifiers` and removes them
-- Then new `group identifiers` will be added by the `group` property of all children (groups are available since **v0.2.4** of the [pytia-property-manager](https://github.com/deloarts/pytia-property-manager)). This can be changed in the settings.json.
-- Afterward the app reorders the graph tree by issuing the `reorder graph tree` command.
+- Then new `group identifiers` will be added by the `group` property of all children (groups are available since **v0.2.4** of the [pytia-property-manager](https://github.com/deloarts/pytia-property-manager)). This can be changed in the settings.json
+- Afterward the app reorders the graph tree by issuing the `reorder graph tree` command
+- At last all instance numbers are renumbered
 
 ## 4 workspace
 
