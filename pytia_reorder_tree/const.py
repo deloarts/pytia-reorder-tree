@@ -41,4 +41,5 @@ WEB_PIP = "https://www.pypi.org"
 
 LOG_FORMAT = "%(message)s"
 
-STEPS = 4
+STEPS = 5
+ISO_VIEW = "* iso"

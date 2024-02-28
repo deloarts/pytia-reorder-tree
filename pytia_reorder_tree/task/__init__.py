@@ -3,8 +3,10 @@
 """
 
 from tkinter import Tk
+from tkinter import messagebox as tkmsg
 
 from app.vars import Variables
+from const import ISO_VIEW
 from const import STEPS
 from exceptions import WarningError
 from handler.utils import get_ui_language
@@ -13,6 +15,7 @@ from pycatia import catia
 from pycatia.product_structure_interfaces.product import Product
 from pycatia.product_structure_interfaces.product_document import ProductDocument
 from pytia.exceptions import PytiaWrongDocumentTypeError
+from pytia.framework import framework
 from pytia.log import log
 from pytia_ui_tools.handlers.workspace_handler import Workspace
 from resources import resource
@@ -51,6 +54,15 @@ class Task:
 
         language = get_ui_language(product=self.product)
         resource.apply_language(language)  # type: ignore
+
+    def run(self) -> None:
+        """Runs all tasks."""
+        self._create_groups()
+        self._sort_nodes()
+        self._renumber_nodes()
+        self._set_view()
+
+        self.root.destroy()
 
     def _update_info(self, text: str) -> None:
         self.vars.task.set(self.vars.task.get() + 1)
@@ -120,10 +132,19 @@ class Task:
             log.error(msg)
             raise WarningError(msg) from e
 
-    def run(self) -> None:
-        """Runs all tasks."""
-        self._create_groups()
-        self._sort_nodes()
-        self._renumber_nodes()
+    def _set_view(self) -> None:
+        self._update_info("Fitting all in...")
 
-        self.root.destroy()
+        try:
+            viewer = framework.catia.active_window.active_viewer
+            camera = framework.catia.active_document.cameras.item(ISO_VIEW)
+
+            # FIXME: pytia v0.3.5 has no type for Viewpoint3D.
+            viewer.viewer.Viewpoint3D = camera.camera.Viewpoint3D
+
+            viewer.update()
+            viewer.reframe()
+        except Exception as e:
+            msg = "Failed to set ISO view."
+            tkmsg.showwarning(title=resource.settings.title, message=msg)
+            log.error(f"{msg} {e}")
