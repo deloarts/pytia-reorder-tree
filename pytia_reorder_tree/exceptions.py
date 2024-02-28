@@ -5,7 +5,7 @@
 import sys
 import traceback
 
-from app.log import log
+from pytia.log import log
 
 
 class BaseError(Exception):
@@ -14,10 +14,14 @@ class BaseError(Exception):
     def __init__(self, msg: str, with_trace: bool = True) -> None:
         super().__init__(msg)
         if with_trace and traceback.extract_tb(sys.exc_info()[2]):
-            log.logger.exception(msg)
+            log.exception(msg)
         else:
-            log.logger.error(msg)
+            log.error(msg)
 
 
 class WindowNotConnectedError(BaseError):
     """Exception for pywinauto window connection error."""
+
+
+class WarningError(BaseError):
+    """Exception for warnings only."""

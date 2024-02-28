@@ -1,7 +1,9 @@
+"""Constants for the app."""
+
 import os
 from pathlib import Path
 
-__version__ = "0.1.2"
+__version__ = "0.2.0"
 
 PYTIA = "pytia"
 PYTIA_REORDER_TREE = "pytia_reorder_tree"
@@ -38,3 +40,6 @@ CONFIG_USERS = "users.json"
 WEB_PIP = "https://www.pypi.org"
 
 LOG_FORMAT = "%(message)s"
+
+STEPS = 5
+ISO_VIEW = "* iso"

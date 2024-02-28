@@ -147,8 +147,9 @@ After the installation you can run the app using the launcher:
 The app runs fully automatic:
 
 - It scans the product for existing `group identifiers` and removes them
-- Then new `group identifiers` will be added by the `group` property of all children (groups are available since **v0.2.4** of the [pytia-property-manager](https://github.com/deloarts/pytia-property-manager)). This can be changed in the settings.json.
-- Afterward the app reorders the graph tree by issuing the `reorder graph tree` command.
+- Then new `group identifiers` will be added by the `group` property of all children (groups are available since **v0.2.4** of the [pytia-property-manager](https://github.com/deloarts/pytia-property-manager)). This can be changed in the settings.json
+- Afterward the app reorders the graph tree by issuing the `reorder graph tree` command
+- At last all instance numbers are renumbered
 
 ## 4 workspace
 
@@ -315,6 +316,7 @@ On a new revision, do the following:
 
 ## 7 changelog
 
+[**v0.2.0**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.2.0): Add GUI, fix hidden product tab, set iso view, renumber nodes.  
 [**v0.1.2**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.2): Fix deprecation & logon.  
 [**v0.1.1**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.1): Run `hide from bom` command last.  
 [**v0.1.0**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.1.0): Initial commit.  

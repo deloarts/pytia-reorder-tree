@@ -53,25 +53,20 @@ def main() -&gt; None:
     # Afterwards import those modules which depend on third party modules.
     deps.install_dependencies()
 
-    from app import run  # pylint: disable=C0415
-    from app.exit import Exit  # pylint: disable=C0415
-    from app.log import log  # pylint: disable=C0415
-    from pytia.log import log as pytia_log  # pylint: disable=C0415
+    from gui import GUI  # pylint: disable=C0415
+    from pytia.log import log  # pylint: disable=C0415
 
-    with open(PID_FILE, &#34;w&#34;) as f:
+    with open(PID_FILE, &#34;w&#34;, encoding=&#34;utf8&#34;) as f:
         f.write(str(PID))
     atexit.register(lambda: os.remove(PID_FILE))
 
     os.makedirs(LOGS, exist_ok=True)
 
-    pytia_log.set_level_warning()
-    log.logger.info(f&#34;Running PYTIA Reorder Tree {APP_VERSION}, PID={PID}&#34;)
+    log.set_level_warning()
+    log.info(f&#34;Running PYTIA Reorder Tree {APP_VERSION}, PID={PID}&#34;)
 
-    try:
-        run()
-    except AssertionError as e:
-        log.logger.exception(f&#34;Failed to reorder items: {e}&#34;)
-        Exit().keep_open()
+    gui = GUI()
+    gui.run()
 
 
 if __name__ == &#34;__main__&#34;:
@@ -103,25 +98,20 @@ if __name__ == &#34;__main__&#34;:
     # Afterwards import those modules which depend on third party modules.
     deps.install_dependencies()
 
-    from app import run  # pylint: disable=C0415
-    from app.exit import Exit  # pylint: disable=C0415
-    from app.log import log  # pylint: disable=C0415
-    from pytia.log import log as pytia_log  # pylint: disable=C0415
+    from gui import GUI  # pylint: disable=C0415
+    from pytia.log import log  # pylint: disable=C0415
 
-    with open(PID_FILE, &#34;w&#34;) as f:
+    with open(PID_FILE, &#34;w&#34;, encoding=&#34;utf8&#34;) as f:
         f.write(str(PID))
     atexit.register(lambda: os.remove(PID_FILE))
 
     os.makedirs(LOGS, exist_ok=True)
 
-    pytia_log.set_level_warning()
-    log.logger.info(f&#34;Running PYTIA Reorder Tree {APP_VERSION}, PID={PID}&#34;)
+    log.set_level_warning()
+    log.info(f&#34;Running PYTIA Reorder Tree {APP_VERSION}, PID={PID}&#34;)
 
-    try:
-        run()
-    except AssertionError as e:
-        log.logger.exception(f&#34;Failed to reorder items: {e}&#34;)
-        Exit().keep_open()</code></pre>
+    gui = GUI()
+    gui.run()</code></pre>
 </details>
 </dd>
 </dl>

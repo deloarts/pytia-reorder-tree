@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.10.0" />
-<title>pytia_reorder_tree.app API documentation</title>
-<meta name="description" content="" />
+<title>pytia_reorder_tree.app.vars API documentation</title>
+<meta name="description" content="The variables submodule for the app." />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -19,36 +19,97 @@
 <main>
 <article id="content">
 <header>
-<h1 class="title">Module <code>pytia_reorder_tree.app</code></h1>
+<h1 class="title">Module <code>pytia_reorder_tree.app.vars</code></h1>
 </header>
 <section id="section-intro">
+<p>The variables submodule for the app.</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;
+    The variables submodule for the app.
+&#34;&#34;&#34;
+
+from dataclasses import dataclass
+from tkinter import IntVar
+from tkinter import StringVar
+from tkinter import Tk
+
+
+@dataclass(slots=True, kw_only=True)
+class Variables:
+    &#34;&#34;&#34;Dataclass for the main windows variables.&#34;&#34;&#34;
+
+    status: StringVar
+    task: IntVar
+
+    def __init__(self, root: Tk) -&gt; None:
+        &#34;&#34;&#34;
+        Inits the variables.
+
+        Args:
+            root (Tk): The main window.
+        &#34;&#34;&#34;
+        self.status = StringVar(master=root, name=&#34;status&#34;, value=&#34;Loading application&#34;)
+        self.task = IntVar(master=root, name=&#34;task&#34;, value=0)</code></pre>
+</details>
 </section>
 <section>
-<h2 class="section-title" id="header-submodules">Sub-modules</h2>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt><code class="name"><a title="pytia_reorder_tree.app.frames" href="frames.html">pytia_reorder_tree.app.frames</a></code></dt>
+<dt id="pytia_reorder_tree.app.vars.Variables"><code class="flex name class">
+<span>class <span class="ident">Variables</span></span>
+<span>(</span><span>root: tkinter.Tk)</span>
+</code></dt>
 <dd>
-<div class="desc"><p>Frames submodule for the main window.</p></div>
+<div class="desc"><p>Dataclass for the main windows variables.</p>
+<p>Inits the variables.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>root</code></strong> :&ensp;<code>Tk</code></dt>
+<dd>The main window.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">@dataclass(slots=True, kw_only=True)
+class Variables:
+    &#34;&#34;&#34;Dataclass for the main windows variables.&#34;&#34;&#34;
+
+    status: StringVar
+    task: IntVar
+
+    def __init__(self, root: Tk) -&gt; None:
+        &#34;&#34;&#34;
+        Inits the variables.
+
+        Args:
+            root (Tk): The main window.
+        &#34;&#34;&#34;
+        self.status = StringVar(master=root, name=&#34;status&#34;, value=&#34;Loading application&#34;)
+        self.task = IntVar(master=root, name=&#34;task&#34;, value=0)</code></pre>
+</details>
+<h3>Instance variables</h3>
+<dl>
+<dt id="pytia_reorder_tree.app.vars.Variables.status"><code class="name">var <span class="ident">status</span> : tkinter.StringVar</code></dt>
+<dd>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
 </dd>
-<dt><code class="name"><a title="pytia_reorder_tree.app.layout" href="layout.html">pytia_reorder_tree.app.layout</a></code></dt>
+<dt id="pytia_reorder_tree.app.vars.Variables.task"><code class="name">var <span class="ident">task</span> : tkinter.IntVar</code></dt>
 <dd>
-<div class="desc"><p>The layout of the app.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia_reorder_tree.app.traces" href="traces.html">pytia_reorder_tree.app.traces</a></code></dt>
-<dd>
-<div class="desc"><p>Traces submodule for the app.</p></div>
-</dd>
-<dt><code class="name"><a title="pytia_reorder_tree.app.vars" href="vars.html">pytia_reorder_tree.app.vars</a></code></dt>
-<dd>
-<div class="desc"><p>The variables submodule for the app.</p></div>
+<div class="desc"><p>Return an attribute of instance, which is of type owner.</p></div>
 </dd>
 </dl>
-</section>
-<section>
-</section>
-<section>
-</section>
-<section>
+</dd>
+</dl>
 </section>
 </article>
 <nav id="sidebar">
@@ -59,15 +120,18 @@
 <ul id="index">
 <li><h3>Super-module</h3>
 <ul>
-<li><code><a title="pytia_reorder_tree" href="../index.html">pytia_reorder_tree</a></code></li>
+<li><code><a title="pytia_reorder_tree.app" href="index.html">pytia_reorder_tree.app</a></code></li>
 </ul>
 </li>
-<li><h3><a href="#header-submodules">Sub-modules</a></h3>
+<li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
-<li><code><a title="pytia_reorder_tree.app.frames" href="frames.html">pytia_reorder_tree.app.frames</a></code></li>
-<li><code><a title="pytia_reorder_tree.app.layout" href="layout.html">pytia_reorder_tree.app.layout</a></code></li>
-<li><code><a title="pytia_reorder_tree.app.traces" href="traces.html">pytia_reorder_tree.app.traces</a></code></li>
-<li><code><a title="pytia_reorder_tree.app.vars" href="vars.html">pytia_reorder_tree.app.vars</a></code></li>
+<li>
+<h4><code><a title="pytia_reorder_tree.app.vars.Variables" href="#pytia_reorder_tree.app.vars.Variables">Variables</a></code></h4>
+<ul class="">
+<li><code><a title="pytia_reorder_tree.app.vars.Variables.status" href="#pytia_reorder_tree.app.vars.Variables.status">status</a></code></li>
+<li><code><a title="pytia_reorder_tree.app.vars.Variables.task" href="#pytia_reorder_tree.app.vars.Variables.task">task</a></code></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
