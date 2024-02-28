@@ -6,13 +6,11 @@
 from time import sleep
 from tkinter import messagebox as tkmsg
 
-from app.log import console
-from app.log import log
-from app.protocols.window_protocol import WindowProtocol
-from app.window_handler import BaseWindow
-from const import TOPLEVEL
 from exceptions import WindowNotConnectedError
+from handler.window_handler import BaseWindow
+from protocols.window_protocol import WindowProtocol
 from pycatia.in_interfaces.application import Application
+from pytia.log import log
 from pywinauto.controls.common_controls import TabControlWrapper
 from pywinauto.controls.win32_controls import ButtonWrapper
 from resources import resource
@@ -31,7 +29,6 @@ class PropertyWindow(BaseWindow, WindowProtocol):
             caa=caa,
             window_name=resource.applied_keywords.props_window_name,
         )
-
         self._product_tab_visible: bool = False
 
         self._tab_product: TabControlWrapper | None = None
@@ -53,16 +50,14 @@ class PropertyWindow(BaseWindow, WindowProtocol):
         """
         try:
             self._caa.start_command(resource.applied_keywords.props_cmd_name)
-            log.logger.info(
-                f"Command {resource.applied_keywords.props_cmd_name!r} issued."
-            )
+            log.info(f"Command {resource.applied_keywords.props_cmd_name!r} issued.")
 
-            with console.status("Connecting to 'properties' window..."):
-                sleep(1)  # TODO: Make this not depending on sleep
-                self._get_window()
-                self._get_window_children()
+            log.info("Connecting to 'properties' window...")
+            sleep(1)  # TODO: Make this not depending on sleep
+            self._get_window()
+            self._get_window_children()
 
-            log.logger.info(
+            log.info(
                 f"Connected to {resource.applied_keywords.props_window_name!r} window."
             )
 
@@ -87,11 +82,11 @@ class PropertyWindow(BaseWindow, WindowProtocol):
             and self._tab_product is not None
             and self._tab_product.is_visible()
         ):
-            with console.status("Excluding items from BOM..."):
-                self._chk_bom.uncheck_by_click_input()
-            log.logger.info("Excluded selected products from BOM.")
+            log.info("Excluding items from BOM...")
+            self._chk_bom.uncheck_by_click_input()
+            log.info("Excluded selected products from BOM.")
         else:
-            log.logger.warning(
+            log.warning(
                 "Cannot exclude items from the BOM: Tab 'Product' is not visible."
             )
 
@@ -128,7 +123,6 @@ class PropertyWindow(BaseWindow, WindowProtocol):
                 "click OK.\n\nClick cancel to proceed without excluding the "
                 "selected items from the bill of material."
             ),
-            parent=TOPLEVEL,
         ):
             self._get_window()
             self._get_window_children()

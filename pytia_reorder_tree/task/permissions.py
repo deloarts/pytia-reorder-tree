@@ -3,9 +3,9 @@
     Checks permissions from the settings.
 """
 
-from app.exit import Exit
-from app.log import log
 from const import LOGON
+from exceptions import WarningError
+from pytia.log import log
 from pytia_ui_tools.handlers.workspace_handler import Workspace
 from resources import resource
 
@@ -30,11 +30,10 @@ class Permissions:
             not resource.logon_exists()
             and not resource.settings.restrictions.allow_all_users
         ):
-            log.logger.error(
+            raise WarningError(
                 "You are not allowed to reorder the graph tree: Your logon "
                 f"name ({LOGON}) doesn't exist in the user configuration."
             )
-            Exit().keep_open()
 
     def check_editor_permissions(self) -> None:
         """
@@ -46,17 +45,15 @@ class Permissions:
             and LOGON not in self.workspace.elements.editors
             and not resource.settings.restrictions.allow_all_editors
         ):
-            log.logger.error(
+            raise WarningError(
                 "You are not allowed to reorder the graph tree: Your logon "
                 f"name ({LOGON}) doesn't exist in the workspace configuration."
             )
-            Exit().keep_open()
 
     def check_workspace_permissions(self) -> None:
         """Checks if workspace is enabled."""
         if not self.workspace.elements.active:
-            log.logger.error(
+            raise WarningError(
                 "This workspace is disabled. "
                 "You cannot make changes in this document."
             )
-            Exit().keep_open()

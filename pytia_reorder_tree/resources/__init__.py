@@ -120,6 +120,7 @@ class Settings:  # pylint: disable=R0902
 
     title: str
     debug: bool
+    top: int
     restrictions: SettingsRestrictions
     paths: SettingsPaths
     files: SettingsFiles

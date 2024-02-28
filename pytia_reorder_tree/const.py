@@ -1,6 +1,5 @@
 import os
 from pathlib import Path
-from tkinter import Tk
 
 __version__ = "0.1.2"
 
@@ -40,7 +39,4 @@ WEB_PIP = "https://www.pypi.org"
 
 LOG_FORMAT = "%(message)s"
 
-_tk_root = Tk()
-_tk_root.wm_attributes("-topmost", 1)
-_tk_root.withdraw()
-TOPLEVEL = _tk_root
+STEPS = 4
