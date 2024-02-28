@@ -6,15 +6,14 @@
 from typing import Dict
 from typing import List
 
-from app.log import console
-from app.log import log
-from app.window_handler.property_window import PropertyWindow
 from const import PROP_GROUP_IDENTIFIER
 from const import PROP_NO_BOM
 from exceptions import WindowNotConnectedError
+from handler.window_handler.property_window import PropertyWindow
 from pycatia.in_interfaces.application import Application
 from pycatia.product_structure_interfaces.product import Product
 from pycatia.product_structure_interfaces.product_document import ProductDocument
+from pytia.log import log
 from pytia.wrapper.properties import PyProperties
 from resources import resource
 
@@ -46,11 +45,11 @@ class Groups:
 
         self._created_groups = []
 
-        with console.status("Reading existing groups from properties..."):
-            for node in self._product.products:
-                props = PyProperties(node.reference_product)
-                if props.exists(resource.props.group):
-                    groups[props.get_by_name(resource.props.group).value] = node.source
+        log.info("Reading existing groups from properties...")
+        for node in self._product.products:
+            props = PyProperties(node.reference_product)
+            if props.exists(resource.props.group):
+                groups[props.get_by_name(resource.props.group).value] = node.source
 
         for index, group in enumerate(groups):
             group_product = self._create(
@@ -107,20 +106,20 @@ class Groups:
         if value:
             props.create(name=resource.props.group, value=value)
 
-        log.logger.info(f"Created new product {name!r}.")
+        log.info(f"Created new product {name!r}.")
         return product
 
     def _remove(self) -> None:
         """Removes all products flagged as group identifier from the parent product."""
         nodes: List[Product] = []
 
-        with console.status("Indexing existing group identifiers..."):
-            for node in self._product.products:
-                props = PyProperties(node.reference_product)
-                if props.exists(PROP_GROUP_IDENTIFIER):
-                    nodes.append(node)
+        log.info("Indexing existing group identifiers...")
+        for node in self._product.products:
+            props = PyProperties(node.reference_product)
+            if props.exists(PROP_GROUP_IDENTIFIER):
+                nodes.append(node)
 
         for node in nodes:
             node_name = node.part_number
             self._product.products.remove(node.product)
-            log.logger.info(f"Removed group identifier {node_name!r}.")
+            log.info(f"Removed group identifier {node_name!r}.")

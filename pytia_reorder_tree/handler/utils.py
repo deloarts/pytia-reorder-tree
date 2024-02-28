@@ -4,9 +4,9 @@
 
 from typing import Literal
 
-from app.exit import Exit
-from app.log import log
+from exceptions import WarningError
 from pycatia.product_structure_interfaces.product import Product
+from pytia.log import log
 from resources import resource
 
 
@@ -19,17 +19,16 @@ def get_ui_language(product: Product) -> Literal["en", "de"] | None:
     parameters = product.parameters
     try:
         parameters.get_item(resource.keywords.en.partnumber)
-        log.logger.info("UI language is set to 'English'.")
+        log.info("UI language is set to 'English'.")
         return "en"
     except:
         pass
 
     try:
         parameters.get_item(resource.keywords.de.partnumber)
-        log.logger.info("UI language is set to 'German'.")
+        log.info("UI language is set to 'German'.")
         return "de"
     except:
         pass
 
-    log.logger.error("The UI language is not supported.")
-    Exit().keep_open()
+    raise WarningError("The UI language is not supported.")

@@ -6,11 +6,10 @@
 from typing import Dict
 from typing import List
 
-from app.log import console
-from app.log import log
 from const import PROP_GROUP_IDENTIFIER
 from pycatia.in_interfaces.application import Application
 from pycatia.product_structure_interfaces.product import Product
+from pytia.log import log
 from pytia.wrapper.properties import PyProperties
 from resources import resource
 from type_collections import InstanceIndex
@@ -37,12 +36,12 @@ class Renumbering:
         Skips the task if `renumber` in the settings.json is set to false.
         """
         if not resource.settings.tree.renumber:
-            log.logger.info("Skipped renumbering product nodes.")
+            log.info("Skipped renumbering product nodes.")
             return
 
-        with console.status("Renumbering all nodes..."):
-            self._renumber(make_hash=True)
-            self._renumber(make_hash=False)
+        log.info("Renumbering all nodes...")
+        self._renumber(make_hash=True)
+        self._renumber(make_hash=False)
 
     def _renumber(self, make_hash: bool) -> None:
         """Does the actual renumbering.

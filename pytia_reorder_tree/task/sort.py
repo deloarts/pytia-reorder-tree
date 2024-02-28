@@ -4,14 +4,13 @@
 
 from typing import List
 
-from app.exit import Exit
-from app.log import console
-from app.log import log
 from const import PROP_GROUP_IDENTIFIER
+from exceptions import WarningError
 from pycatia.in_interfaces.application import Application
 from pycatia.knowledge_interfaces.str_param import StrParam
 from pycatia.product_structure_interfaces.product import Product
 from pycatia.product_structure_interfaces.products import Products
+from pytia.log import log
 from pywinauto.controls.win32_controls import ButtonWrapper
 from pywinauto.controls.win32_controls import ListBoxWrapper
 from resources import resource
@@ -35,14 +34,14 @@ class Sort:
             products (Products): The products instance from the graph tree object to
             be sorted.
         """
-        with console.status("Gathering processable products from assembly..."):
-            for product in products:
-                if product.is_catproduct() or product.is_catpart():
-                    self._products.append(product)
+        log.info("Gathering processable products from assembly...")
+        for product in products:
+            if product.is_catproduct() or product.is_catpart():
+                self._products.append(product)
 
         if resource.settings.debug:
             msg = "\n - ".join(p.name for p in self._products)
-            log.logger.debug(f"Processable items:\n - {msg}")
+            log.debug(f"Processable items:\n - {msg}")
 
     def set_list_box(self, list_box: ListBoxWrapper) -> None:
         """Sets the list box object.
@@ -88,23 +87,22 @@ class Sort:
         assert self._btn_up is not None
 
         if self._delimiter is None:
-            log.logger.warning(
+            log.warning(
                 "No delimiter for tree nodes set. "
                 "This may cause inconsistent results."
             )
 
-        with console.status("Pre-sorting items from assembly..."):
-            self._products.sort(
-                key=lambda x: (Filter.default(x) is None, Filter.default(x))
-            )
-        log.logger.info("Pre-sorted items from assembly.")
+        log.info("Pre-sorting items from assembly...")
+        self._products.sort(
+            key=lambda x: (Filter.default(x) is None, Filter.default(x))
+        )
+        log.info("Pre-sorted items from assembly.")
 
         unsorted_tree_items = [item for item in self._list_box.item_texts()]
         sorted_tree_items = [None] * len(unsorted_tree_items)
 
         if len(self._products) != len(sorted_tree_items):
-            log.logger.error("Cannot assign all items from assembly to the listbox.")
-            Exit().keep_open()
+            raise WarningError("Cannot assign all items from assembly to the listbox.")
 
         for product_index, product_item in enumerate(self._products):
             for tree_index, tree_item in enumerate(unsorted_tree_items):
@@ -122,20 +120,20 @@ class Sort:
                             tree_index
                         ]
 
-        log.logger.info("Assigned product items to the appropriate tree items.")
+        log.info("Assigned product items to the appropriate tree items.")
 
         # print([i.name for i in self._products])
         # print([item for item in sorted_tree_items])
 
-        with console.status("Reordering tree items..."):
-            for index, value in enumerate(sorted_tree_items):
-                self._list_box.select(value)
-                current_position = self._list_box.item_texts().index(value)
-                target_position = index
-                for _ in range(current_position - target_position):
-                    self._btn_up.click()
+        log.info("Reordering tree items...")
+        for index, value in enumerate(sorted_tree_items):
+            self._list_box.select(value)
+            current_position = self._list_box.item_texts().index(value)
+            target_position = index
+            for _ in range(current_position - target_position):
+                self._btn_up.click()
 
-        log.logger.info("Successfully reordered graph tree items.")
+        log.info("Successfully reordered graph tree items.")
 
     def _filter(self, product: Product) -> tuple | None:
         return (
@@ -200,7 +198,7 @@ class Filter:
             product.name,
         )
 
-        log.logger.debug(f"Filter key: {key}")
+        log.debug(f"Filter key: {key}")
         return key
 
     @staticmethod
@@ -231,7 +229,7 @@ class Filter:
                 product.name,
             )
 
-        # log.logger.debug(f"Filter key: {key}")
+        # log.debug(f"Filter key: {key}")
         return key
 
     @staticmethod

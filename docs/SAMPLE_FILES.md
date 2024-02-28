@@ -17,6 +17,7 @@ This file contains the basic settings for the app.
 {
     "title": "PYTIA Reorder Tree",
     "debug": false,
+    "top": 40,
     "restrictions": {
         "allow_all_users": false,
         "allow_all_editors": false,
@@ -36,7 +37,9 @@ This file contains the basic settings for the app.
         "group_prefix": "GROUP ",
         "group_postfix": "",
         "IN_delimiter": " | ",
-        "IN_position": 1
+        "IN_position": 1,
+        "renumber": true,
+        "start_index": 1
     },
     "urls": {
         "help": "https://github.com/deloarts/pytia-reorder-tree"
@@ -53,6 +56,7 @@ name | type | description
 --- | --- | ---
 title | `str` | The apps title. This will be visible in the title bar of the window.
 debug | `bool` | The flag to declare the debug-state of the app. The app cannot be built if this value is true.
+top | `int` | The apps distance from the top of the screen.
 restrictions.allow_all_users | `bool` | If set to `true` any user can make changes to the documents properties. If set to `false` only those users from the **users.json** file can modify the properties.
 restrictions.allow_all_editors | `bool` | If set to `true` any user can make changes to the documents properties. If set to `false` only those users which are declared in the **workspace** file can modify the properties. If no workspace file is found, or no **editors** list-item is inside the workspace file, then this is omitted, and everyone can make changes.
 restrictions.allow_outside_workspace | `bool` | If set to `false` a **workspace** file must be provided somewhere in the folder structure where the document is saved. This also means, that an unsaved document (a document which doesn't have a path yet) cannot be modified.
@@ -66,6 +70,8 @@ tree.group_prefix | `str` | Possibility for adding a prefix to the group identif
 tree.group_postfix | `str` | Possibility for adding a postfix to the group identifier. Uses the group property from pytia-property-manager.
 tree.IN_delimiter | `str` | The delimiter for recognizing the instance number in the graph tree node. Example: If the tree node string looks like this `#PN# , #IN# , #SO#` then the delimiter is `' , '` and the position is '1'.
 tree.IN_position | `int` | The position of the instance number in the tree node, see example above.
+tree.renumber | `bool` | Wether or not to renumber the instance number of the tree nodes.
+tree.start_index | `int` | The index from which to number all tree nodes.
 urls.help | `str` or `null` | The help page for the app. If set to null the user will receive a message, that no help page is provided.
 mails.admin | `str` | The mail address of the sys admin. Required for error mails.
 
