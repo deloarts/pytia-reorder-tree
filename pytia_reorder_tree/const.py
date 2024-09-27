@@ -3,7 +3,7 @@
 import os
 from pathlib import Path
 
-__version__ = "0.2.1"
+__version__ = "0.3.0"
 
 PYTIA = "pytia"
 PYTIA_REORDER_TREE = "pytia_reorder_tree"
