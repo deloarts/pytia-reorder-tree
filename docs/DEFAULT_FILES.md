@@ -16,7 +16,7 @@ This file contains all part properties, which are required for this app.
 ```json
 {
     "project": "pytia.project",
-    "machine": "pytia.machine",
+    "product": "pytia.product",
     "creator": "pytia.creator",
     "modifier": "pytia.modifier",
     "group": "pytia.group",

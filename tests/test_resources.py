@@ -47,7 +47,7 @@ def test_properties():
     from pytia_reorder_tree.resources import resource
 
     assert "project" in resource.props.keys
-    assert "machine" in resource.props.keys
+    assert "product" in resource.props.keys
     assert "creator" in resource.props.keys
     assert "modifier" in resource.props.keys
 
