@@ -144,7 +144,7 @@ class Props:
     """Dataclass for properties on the part (properties.json)."""
 
     project: str
-    machine: str
+    product: str
     creator: str
     modifier: str
     group: str
