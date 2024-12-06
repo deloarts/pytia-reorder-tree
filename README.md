@@ -316,7 +316,7 @@ On a new revision, do the following:
 
 ## 7 changelog
 
-
+[**v0.3.1**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.3.1): Update deps and docs.  
 [**v0.3.0**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.3.0): Rename machine property to product.  
 [**v0.2.1**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.2.1): Run app windowed.  
 [**v0.2.0**](https://github.com/deloarts/pytia-reorder-tree/releases/tag/v0.2.0): Add GUI, fix hidden product tab, set iso view, renumber nodes.  
