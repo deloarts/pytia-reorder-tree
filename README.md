@@ -1,6 +1,6 @@
 # pytia reorder tree
 
-![state](https://img.shields.io/badge/State-beta-brown.svg?style=for-the-badge)
+![state](https://img.shields.io/badge/State-archived-brown.svg?style=for-the-badge)
 ![version](https://img.shields.io/github/v/release/deloarts/pytia-reorder-tree?style=for-the-badge&color=orange)
 
 [![python](https://img.shields.io/badge/Python-3.10-blue.svg?style=for-the-badge)](https://www.python.org/downloads/)
@@ -15,7 +15,7 @@ This app does the following for you:
 - create groups by the groups set in the property manager app
 - order all bought parts by the manufacturer (again, from the property manager app)
 
-> ⚠️ The layout of this app is heavily biased towards the workflow and needs of my companies' engineering team. Although almost everything can be changed via config files and presets, the apps basic functionality is built to work in the environment of said company.
+> ⚠️ Due to the lack of a CATIA License I'm no longer able to develop this app. I leave it here for others to use, but keep in mind that I can't provide updates or fixes.
 >
 > ⚠️ Due to the lack of an API based implementation of the reorder graph tree command, the app uses a window based approach. This may result in unexpected behavior when using the app.
 
